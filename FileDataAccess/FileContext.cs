@@ -36,6 +36,15 @@ public class FileContext
         }
     }
 
+    public ICollection<Vote> Votes
+    {
+        get
+        {
+            LoadData();
+            return _dataContainer!.Votes;
+        }
+    }
+
     private void LoadData()
     {
         if(_dataContainer!=null) return;
@@ -46,11 +55,11 @@ public class FileContext
             {
                 Posts = new List<Post>(),
                 Users = new List<User>(),
-                Comments = new List<Comment>()
+                Comments = new List<Comment>(),
+                Votes = new List<Vote>()
             };
             return;
         }
-
         string content = File.ReadAllText(FilePath);
         _dataContainer = JsonSerializer.Deserialize<DataContainer>(content);
     }
@@ -63,10 +72,5 @@ public class FileContext
         });
         File.WriteAllText(FilePath, serialized);
         _dataContainer = null;
-    }
-    
-    public string ToString()
-    {
-        return "Created.";
     }
 }

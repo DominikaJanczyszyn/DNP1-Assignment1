@@ -15,7 +15,6 @@ public class CommentFileDao : ICommentDao
     public Task<Comment> CreateAsync(Comment comment)
     {
         int id = 1;
-        Console.WriteLine(_context.ToString());
         if (_context.Comments.Any())
         {
             id = _context.Comments.Max((c => c.Id));

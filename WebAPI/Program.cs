@@ -1,6 +1,7 @@
 using Application.DAO_Interfaces;
 using Application.Logic;
 using Application.LogicInterfaces;
+using Assignment1.Models;
 using FileDataAccess;
 using FileDataAccess.DAOs;
 
@@ -19,6 +20,8 @@ builder.Services.AddScoped<IPostDao, PostFileDao>();
 builder.Services.AddScoped<IPostLogic, PostLogic>();
 builder.Services.AddScoped<ICommentDao, CommentFileDao>();
 builder.Services.AddScoped<ICommentLogic, CommentLogic>();
+builder.Services.AddScoped<IVoteDao, VoteFileDao>();
+builder.Services.AddScoped<IVoteLogic, VoteLogic>();
 
 var app = builder.Build();
 

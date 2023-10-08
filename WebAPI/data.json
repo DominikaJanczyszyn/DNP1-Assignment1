@@ -2,7 +2,11 @@
   "Users": [
     {
       "Username": "Dominika",
-      "Password": "password"
+      "Password": "password1"
+    },
+    {
+      "Username": "Allan",
+      "Password": "password123"
     }
   ],
   "Posts": [
@@ -10,7 +14,7 @@
       "Id": 1,
       "Author": {
         "Username": "Dominika",
-        "Password": "password"
+        "Password": "password1"
       },
       "Title": "Title of the Post",
       "Body": "Body of the Post"
@@ -20,19 +24,37 @@
     {
       "Id": 1,
       "Author": {
-        "Username": "Dominika",
-        "Password": "password"
+        "Username": "Allan",
+        "Password": "password123"
       },
       "Post": {
         "Id": 1,
         "Author": {
           "Username": "Dominika",
-          "Password": "password"
+          "Password": "password1"
         },
         "Title": "Title of the Post",
         "Body": "Body of the Post"
       },
       "Body": "Comment"
+    }
+  ],
+  "Votes": [
+    {
+      "Author": {
+        "Username": "Allan",
+        "Password": "password123"
+      },
+      "Post": {
+        "Id": 1,
+        "Author": {
+          "Username": "Dominika",
+          "Password": "password1"
+        },
+        "Title": "Title of the Post",
+        "Body": "Body of the Post"
+      },
+      "IsPositive": true
     }
   ]
 }
