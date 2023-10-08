@@ -1,0 +1,38 @@
+{
+  "Users": [
+    {
+      "Username": "Dominika",
+      "Password": "password"
+    }
+  ],
+  "Posts": [
+    {
+      "Id": 1,
+      "Author": {
+        "Username": "Dominika",
+        "Password": "password"
+      },
+      "Title": "Title of the Post",
+      "Body": "Body of the Post"
+    }
+  ],
+  "Comments": [
+    {
+      "Id": 1,
+      "Author": {
+        "Username": "Dominika",
+        "Password": "password"
+      },
+      "Post": {
+        "Id": 1,
+        "Author": {
+          "Username": "Dominika",
+          "Password": "password"
+        },
+        "Title": "Title of the Post",
+        "Body": "Body of the Post"
+      },
+      "Body": "Comment"
+    }
+  ]
+}

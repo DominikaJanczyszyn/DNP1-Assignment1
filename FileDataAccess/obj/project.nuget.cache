@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "c47oJAx0dSrXyA1Y4GQ+oNtJP9VwpoHDweaC0Y5Jv6ivQGcXyJ7OE5FXT6QHydydnuO2MbYmxoADuej0kUolFg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\domin\\RiderProjects\\Assignment1\\FileDataAccess\\FileDataAccess.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\domin\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.21\\microsoft.netcore.app.ref.6.0.21.nupkg.sha512",
+    "C:\\Users\\domin\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.21\\microsoft.windowsdesktop.app.ref.6.0.21.nupkg.sha512",
+    "C:\\Users\\domin\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.21\\microsoft.aspnetcore.app.ref.6.0.21.nupkg.sha512"
+  ],
+  "logs": []
+}
