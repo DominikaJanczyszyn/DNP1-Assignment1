@@ -21,8 +21,5 @@
       <Compile Remove="WeatherForecast.cs" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Content Remove="data.json" />
-    </ItemGroup>
 
 </Project>

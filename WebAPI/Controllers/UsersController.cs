@@ -1,5 +1,6 @@
 ﻿using Assignment1.DTOs;
 using Assignment1.Models;
+using Shared.DTOs;
 
 namespace WebAPI.Controllers;
 using Application.LogicInterfaces;
@@ -22,6 +23,21 @@ public class UsersController : ControllerBase
         {
             User user = await userLogic.CreateAsync(dto);
             return Created($"/users/{user.Username}", user);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            return StatusCode(500, e.Message);
+        }
+    }
+    [HttpGet]
+    public async Task<ActionResult<IEnumerable<User>>> GetAsync([FromQuery] string? username)
+    {
+        try
+        {
+            SearchUserParametersDto parameters = new(username);
+            IEnumerable<User> users = await userLogic.GetAsync(parameters);
+            return Ok(users);
         }
         catch (Exception e)
         {

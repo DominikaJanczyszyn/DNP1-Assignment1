@@ -7,6 +7,10 @@
     {
       "Username": "Allan",
       "Password": "password123"
+    },
+    {
+      "Username": "Magda",
+      "Password": "strinwrerg"
     }
   ],
   "Posts": [
@@ -18,6 +22,15 @@
       },
       "Title": "Title of the Post",
       "Body": "Body of the Post"
+    },
+    {
+      "Id": 2,
+      "Author": {
+        "Username": "Allan",
+        "Password": "password123"
+      },
+      "Title": "title ",
+      "Body": "somesing "
     }
   ],
   "Comments": [
