@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "cId70uDpdp7aJBMqcMwAhKRQCy+csZFtw9gJsYgFANqzoeRDSDcH02py9kulI21HiUv6tR028JvoEFyXPW0Qfw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\domin\\RiderProjects\\Assignment1\\HttpClients\\HttpClients.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\domin\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.21\\microsoft.netcore.app.ref.6.0.21.nupkg.sha512",
+    "C:\\Users\\domin\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.21\\microsoft.windowsdesktop.app.ref.6.0.21.nupkg.sha512",
+    "C:\\Users\\domin\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.21\\microsoft.aspnetcore.app.ref.6.0.21.nupkg.sha512"
+  ],
+  "logs": []
+}
