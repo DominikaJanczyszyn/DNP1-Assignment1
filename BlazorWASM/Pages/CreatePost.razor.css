@@ -17,6 +17,9 @@
 h6{
     text-align: left;
 }
+#postTitle{
+    text-align: left;
+}
 .acceptbtn {
     background-color: #318fef;
     width:100%;

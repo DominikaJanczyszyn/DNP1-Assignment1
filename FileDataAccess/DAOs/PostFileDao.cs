@@ -33,7 +33,7 @@ public class PostFileDao : IPostDao
     public Task<IEnumerable<Post>> GetAsync(SearchPostParametersDto searchParameters)
     {
         IEnumerable<Post> result = _context.Posts.AsEnumerable();
-                if (searchParameters != null)
+                if (searchParameters.PostId != null)
                 {
                     result = _context.Posts.Where(p => p.Id == searchParameters.PostId);
                 }
