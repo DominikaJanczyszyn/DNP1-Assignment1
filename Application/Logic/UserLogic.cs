@@ -32,6 +32,11 @@ public class UserLogic : IUserLogic
         return UserDao.GetAsync(searchParameters);
     }
 
+    public Task<User?> GetByUsernameAsync(string userName)
+    {
+        return UserDao.GetByUsernameAsync(userName);
+    }
+
     public static void ValidateData(UserCreationDto dto)
     {
         string username = dto.Username;

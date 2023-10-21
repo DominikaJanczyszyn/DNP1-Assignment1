@@ -1,0 +1,73 @@
+﻿@page "/CreateAccount"
+@using HttpClients.ClientInterfaces
+@using Assignment1.DTOs
+@inject IUserService userService
+@inject NavigationManager navMgr
+<div class="card">
+            <h3>Create an Account</h3>
+            <div class="field">
+                <label>User name:</label>
+                <input type="text" @bind="_userName"/>
+            </div>
+            <div class="field">
+                <label style="text-align: center">Password:</label>
+                <input type="password" @bind="password"/>
+            </div> 
+            <div class="field">
+                <label style="text-align: center">Repeat Password:</label>
+                <input type="password" @bind="repeatPassword"/>
+                </div>
+            @if (!string.IsNullOrEmpty(errorLabel))
+            {
+                <div class="field">
+                    <label style="color: red">
+                        @errorLabel
+                    </label>
+                </div>
+            }
+            <div class="field">
+                <button class="loginbtn" @onclick="CreateAsync">Create an Account</button>
+            </div>
+        </div>
+@code {
+    private string _userName = "";
+    private string password = "";
+    private string repeatPassword = "";
+    private string errorLabel = "";
+
+    private async Task CreateAsync()
+    {
+        if (string.IsNullOrEmpty(_userName))
+        {
+            errorLabel = "Username can not be empty!";
+            return;
+        }
+        if (string.IsNullOrEmpty(password))
+        {
+            errorLabel = "Password cannot be empty!";
+            return;
+        }
+        if (string.IsNullOrEmpty(repeatPassword))
+        {
+            errorLabel= "Repeat Passwprd!";
+            return;
+        }
+        if (!password.Equals(repeatPassword))
+        {
+            errorLabel = "Repeated password is not the same as password!";
+            return;
+        }
+        try
+        {
+            UserCreationDto dto = new(_userName, password);
+            await userService.CreateAsync(dto);
+            errorLabel = "Account Created, Hello " + _userName;
+            navMgr.NavigateTo("/Login");
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            errorLabel = $"Error: {e.Message}";
+        }
+    }
+}

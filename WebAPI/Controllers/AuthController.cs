@@ -1,11 +1,12 @@
 ﻿using System.Security.Claims;
 using Assignment1.Models;
 using Microsoft.AspNetCore.Mvc;
-using WebAPI.Services;
 using System.IdentityModel.Tokens.Jwt;
 using System.Text;
+using Application.LogicInterfaces;
 using Assignment1.DTOs;
 using Microsoft.IdentityModel.Tokens;
+using Shared.DTOs;
 
 namespace WebAPI.Controllers;
 
@@ -14,19 +15,19 @@ namespace WebAPI.Controllers;
 public class AuthController : ControllerBase
 {
     private readonly IConfiguration config;
-    private readonly IAuthService authService;
+    private readonly IUserLogic userLogic;
 
-    public AuthController(IConfiguration config, IAuthService authService)
+    public AuthController(IConfiguration config, IUserLogic userLogic)
     {
         this.config = config;
-        this.authService = authService;
+        this.userLogic = userLogic;
     }
     [HttpPost, Route("login")]
     public async Task<ActionResult> Login([FromBody] UserLoginDto userLoginDto)
     {
         try
         {
-            User user = await authService.ValidateUser(userLoginDto.Username, userLoginDto.Password);
+            User? user = await userLogic.GetByUsernameAsync(userLoginDto.Username);
             string token = GenerateJwt(user);
     
             return Ok(token);
@@ -36,7 +37,7 @@ public class AuthController : ControllerBase
             return BadRequest(e.Message);
         }
     }
-    private List<Claim> GenerateClaims(User user)
+    private List<Claim> GenerateClaims(User? user)
     {
         var claims = new[]
         {
@@ -44,17 +45,11 @@ public class AuthController : ControllerBase
             new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
             new Claim(JwtRegisteredClaimNames.Iat, DateTime.UtcNow.ToString()),
             new Claim(ClaimTypes.Name, user.Username),
-           /* new Claim(ClaimTypes.Role, user.Role),
-            new Claim("DisplayName", user.Name),
-            new Claim("Email", user.Email),
-            new Claim("Age", user.Age.ToString()),
-            new Claim("Domain", user.Domain),
-            new Claim("SecurityLevel", user.SecurityLevel.ToString())*/
         };
         return claims.ToList();
     }
     
-    private string GenerateJwt(User user)
+    private string GenerateJwt(User? user)
     {
         List<Claim> claims = GenerateClaims(user);
     

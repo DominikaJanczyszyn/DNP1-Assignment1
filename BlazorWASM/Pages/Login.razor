@@ -26,6 +26,9 @@
             <div class="field">
                 <button class="loginbtn" @onclick="LoginAsync">Log in</button>
             </div>
+            <div class="field">
+                <button class="loginbtn" @onclick= "OnCrateAccountClick">Create Account</button>
+                </div>
         </div>
     </NotAuthorized>
     <Authorized>
@@ -52,5 +55,10 @@
             Console.WriteLine(e);
             errorLabel = $"Error: {e.Message}";
         }
+    }
+
+    private void OnCrateAccountClick()
+    {
+        navMgr.NavigateTo("/CreateAccount");
     }
 }

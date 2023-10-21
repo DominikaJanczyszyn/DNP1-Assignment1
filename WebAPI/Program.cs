@@ -7,7 +7,6 @@ using FileDataAccess;
 using FileDataAccess.DAOs;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
-using WebAPI.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -26,7 +25,6 @@ builder.Services.AddScoped<ICommentDao, CommentFileDao>();
 builder.Services.AddScoped<ICommentLogic, CommentLogic>();
 builder.Services.AddScoped<IVoteDao, VoteFileDao>();
 builder.Services.AddScoped<IVoteLogic, VoteLogic>();
-builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
 {
     options.RequireHttpsMetadata = false;

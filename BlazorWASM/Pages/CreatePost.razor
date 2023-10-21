@@ -115,7 +115,7 @@
         {
             PostCreationDto dto = new(_selectedUsername, _postTitle, _postBody);
             await PostService.CreateAsync(dto);
-            NavMgr.NavigateTo("/");
+            NavMgr.NavigateTo("/Posts");
         }
         catch (Exception e)
         {
