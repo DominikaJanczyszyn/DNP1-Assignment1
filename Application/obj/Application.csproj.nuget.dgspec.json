@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\domin\\RiderProjects\\Assignment1\\Application\\Application.csproj": {}
+    "C:\\Users\\Dominika\\RiderProjects\\DNP1-Assignment1\\Application\\Application.csproj": {}
   },
   "projects": {
-    "C:\\Users\\domin\\RiderProjects\\Assignment1\\Application\\Application.csproj": {
+    "C:\\Users\\Dominika\\RiderProjects\\DNP1-Assignment1\\Application\\Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\domin\\RiderProjects\\Assignment1\\Application\\Application.csproj",
+        "projectUniqueName": "C:\\Users\\Dominika\\RiderProjects\\DNP1-Assignment1\\Application\\Application.csproj",
         "projectName": "Application",
-        "projectPath": "C:\\Users\\domin\\RiderProjects\\Assignment1\\Application\\Application.csproj",
-        "packagesPath": "C:\\Users\\domin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\domin\\RiderProjects\\Assignment1\\Application\\obj\\",
+        "projectPath": "C:\\Users\\Dominika\\RiderProjects\\DNP1-Assignment1\\Application\\Application.csproj",
+        "packagesPath": "C:\\Users\\Dominika\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Dominika\\RiderProjects\\DNP1-Assignment1\\Application\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\domin\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Dominika\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -26,8 +26,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\domin\\RiderProjects\\Assignment1\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\domin\\RiderProjects\\Assignment1\\Domain\\Domain.csproj"
+              "C:\\Users\\Dominika\\RiderProjects\\DNP1-Assignment1\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\Dominika\\RiderProjects\\DNP1-Assignment1\\Domain\\Domain.csproj"
               }
             }
           }
@@ -55,15 +55,15 @@
           "downloadDependencies": [
             {
               "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[6.0.21, 6.0.21]"
+              "version": "[6.0.23, 6.0.23]"
             },
             {
               "name": "Microsoft.NETCore.App.Ref",
-              "version": "[6.0.21, 6.0.21]"
+              "version": "[6.0.23, 6.0.23]"
             },
             {
               "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[6.0.21, 6.0.21]"
+              "version": "[6.0.23, 6.0.23]"
             }
           ],
           "frameworkReferences": {
@@ -71,21 +71,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\domin\\RiderProjects\\Assignment1\\Domain\\Domain.csproj": {
+    "C:\\Users\\Dominika\\RiderProjects\\DNP1-Assignment1\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\domin\\RiderProjects\\Assignment1\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\Users\\Dominika\\RiderProjects\\DNP1-Assignment1\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\Users\\domin\\RiderProjects\\Assignment1\\Domain\\Domain.csproj",
-        "packagesPath": "C:\\Users\\domin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\domin\\RiderProjects\\Assignment1\\Domain\\obj\\",
+        "projectPath": "C:\\Users\\Dominika\\RiderProjects\\DNP1-Assignment1\\Domain\\Domain.csproj",
+        "packagesPath": "C:\\Users\\Dominika\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Dominika\\RiderProjects\\DNP1-Assignment1\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\domin\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\Dominika\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
@@ -108,6 +108,12 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Authorization": {
+              "target": "Package",
+              "version": "[7.0.12, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -122,15 +128,15 @@
           "downloadDependencies": [
             {
               "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[6.0.21, 6.0.21]"
+              "version": "[6.0.23, 6.0.23]"
             },
             {
               "name": "Microsoft.NETCore.App.Ref",
-              "version": "[6.0.21, 6.0.21]"
+              "version": "[6.0.23, 6.0.23]"
             },
             {
               "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[6.0.21, 6.0.21]"
+              "version": "[6.0.23, 6.0.23]"
             }
           ],
           "frameworkReferences": {
@@ -138,7 +144,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -31,6 +31,24 @@
       },
       "Title": "title ",
       "Body": "somesing "
+    },
+    {
+      "Id": 3,
+      "Author": {
+        "Username": "Magda",
+        "Password": "strinwrerg"
+      },
+      "Title": "Something ",
+      "Body": "bla bla bla bla "
+    },
+    {
+      "Id": 4,
+      "Author": {
+        "Username": "Dominika",
+        "Password": "password1"
+      },
+      "Title": "Blblb",
+      "Body": "blablabla"
     }
   ],
   "Comments": [
