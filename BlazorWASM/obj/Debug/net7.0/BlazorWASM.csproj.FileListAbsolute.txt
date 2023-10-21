@@ -1694,3 +1694,4 @@ C:\Users\Dominika\RiderProjects\DNP1-Assignment1\BlazorWASM\obj\Debug\net7.0\bui
 C:\Users\Dominika\RiderProjects\DNP1-Assignment1\BlazorWASM\obj\Debug\net7.0\build-gz\76bvcFTu.gz
 C:\Users\Dominika\RiderProjects\DNP1-Assignment1\BlazorWASM\obj\Debug\net7.0\scopedcss\Pages\Login.razor.rz.scp.css
 C:\Users\Dominika\RiderProjects\DNP1-Assignment1\BlazorWASM\obj\Debug\net7.0\scopedcss\Pages\LoginButtons.razor.rz.scp.css
+C:\Users\Dominika\RiderProjects\DNP1-Assignment1\BlazorWASM\obj\Debug\net7.0\scopedcss\Pages\CreateAccount.razor.rz.scp.css

@@ -6,34 +6,15 @@
 @inject IPostService PostService
 @inject NavigationManager NavMgr
 @attribute [Authorize]
+@using System.Security.Claims
 <div class="card">
-    @if (_users == null)
-    {
-        <label>Loading users...</label>
-    }
-    else if (!_users.Any())
-    {
-        <label>No users, you cannot create a Todo without assignee.</label>
-    }
-    else
-    {
-        <h6>Create Post</h6>
+     <h6>Create Post</h6>
         <div class="form-group field">
             
             <input type="text" placeholder="Title" @bind="_postTitle">
         </div>
         <div class="form-group field">
             <textarea placeholder="Write a post." @bind="_postBody"></textarea>
-        </div>
-        <div class="form-group field">
-            <label>Assignee:</label>
-            <select @bind="_selectedUsername">
-                <option>Choose</option>
-                @foreach (User user in _users)
-                {
-                    <option value="@user.Username">@user.Username</option>
-                }
-            </select>
         </div>
         <div class="button-row">
             @if (!string.IsNullOrEmpty(_msg))
@@ -42,7 +23,6 @@
             }
             <button @onclick="Create" class="acceptbtn">Post</button>
         </div>
-    }
 </div>
 <div>
     @if (_posts == null)
@@ -70,19 +50,27 @@
 </div>
 
 @code {
-    private IEnumerable<User>? _users;
     private IEnumerable<Post>? _posts;
-    private string? _selectedUsername = "";
     private string _postTitle = "";
     private string _postBody = "";
     private string _msg = "";
+    
+    [CascadingParameter]
+    public Task<AuthenticationState> AuthState { get; set; } = null!;
+    private string? userName;
+    private bool isLoggedIn;
 
     protected override async Task OnInitializedAsync()
     {
         _msg = "";
+        AuthenticationState authState = await AuthState;
+        ClaimsPrincipal user = authState.User;
+        isLoggedIn = user.Identity != null;
+        
+        if (!isLoggedIn) return;
+        userName = user.Identity!.Name!;
         try
         {
-            _users = await UserService.GetUsers();
             _posts = await PostService.GetAsync(null, null, null, null);
         }
         catch (Exception e)
@@ -90,16 +78,12 @@
             Console.WriteLine(e);
             _msg = e.Message;
         }
+        
     }
 
     private async Task Create()
     {
         _msg = "";
-        if (string.IsNullOrEmpty(_selectedUsername))
-        {
-            _msg = "You must select an assignee!";
-            return;
-        }
         if (string.IsNullOrEmpty(_postTitle))
         {
             _msg = "Title cannot be empty!";
@@ -113,9 +97,12 @@
 
         try
         {
-            PostCreationDto dto = new(_selectedUsername, _postTitle, _postBody);
+            PostCreationDto dto = new(userName, _postTitle, _postBody);
             await PostService.CreateAsync(dto);
-            NavMgr.NavigateTo("/Posts");
+            _postTitle = "";
+            _postBody = "";
+            OnInitializedAsync();
+            NavMgr.NavigateTo(NavMgr.Uri);
         }
         catch (Exception e)
         {
