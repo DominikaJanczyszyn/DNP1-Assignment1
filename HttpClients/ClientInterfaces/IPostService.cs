@@ -12,4 +12,5 @@ public interface IPostService
         string? titleContains,
         string? bodyContains
     );
+    Task<SearchPostParametersDto?> GetByIdAsync(int id);
 }

@@ -1,0 +1,36 @@
+﻿@page "/ViewPost/{id:int}"
+@using HttpClients.ClientInterfaces
+@using Assignment1.Models
+@inject IPostService postService;
+<div class="card">
+  @if (post == null)
+      {
+          <label>Loading...</label>
+      }
+  <div class="card">
+      <h6> @post.Author.Username</h6>
+      <h4 id="postTitle">@post.Title</h4>
+      <h4 id="postTitle">@post.Body</h4>
+  </div>
+</div>
+@code {
+    [Parameter]
+    public int id { get; set; }
+
+    private Post post;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            ICollection<Post> postData = await postService.GetAsync(id, null, null, null);
+            post = postData.First(p => p.Id == id);
+            Console.WriteLine(post.Title);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+        }
+        
+    }
+}

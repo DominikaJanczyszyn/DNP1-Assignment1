@@ -4,6 +4,8 @@ using Assignment1.Models;
 using HttpClients.ClientInterfaces;
 using Assignment1.DTOs;
 using Assignment1.Models;
+using Shared.DTOs;
+
 namespace HttpClients.Implementations;
 
 public class UserHttpClient : IUserService
@@ -43,5 +45,20 @@ public class UserHttpClient : IUserService
             string content = await responseMessage.Content.ReadAsStringAsync();
             throw new Exception(content);
         }
+    }
+
+    public async Task<SearchUserParametersDto?> GetByUsernameAsync(string userName)
+    {
+        HttpResponseMessage response = await _client.GetAsync($"/Users/{userName}");
+        string content = await response.Content.ReadAsStringAsync();
+        if (!response.IsSuccessStatusCode)
+        {
+            throw new Exception(content);
+        }
+        SearchUserParametersDto user = JsonSerializer.Deserialize<SearchUserParametersDto>(content, new JsonSerializerOptions
+        {
+            PropertyNameCaseInsensitive = true
+        })!;
+        return user;
     }
 }

@@ -1,9 +1,57 @@
 ﻿@page "/"
+@using HttpClients.ClientInterfaces
+@using Assignment1.DTOs
+@using Assignment1.Models
+@inject IUserService UserService
+@inject IPostService PostService
+@inject NavigationManager NavMgr
+@attribute [Authorize]
+@using System.Security.Claims
+<div class="card">
+<div>
+    @if (_posts == null)
+    {
+    }
+    else if (!_posts.Any())
+    {
+        <p>No Post to display</p>
+    }
+    else
+    {
+        @foreach (var item in _posts)
+        {
+            <div class="card" @onclick="@(() => NavMgr.NavigateTo($"/ViewPost/{item.Id}"))">
+                <h6> @item.Author.Username</h6>
+                <h4 id="postTitle"> @item.Title</h4>
+            </div>
+        }
+        
+    }
+    @if (!string.IsNullOrEmpty(_msg))
+    {
+        <label style="color: red">@_msg</label>
+    }
+</div>
+</div>
+@code {
+    private IEnumerable<Post>? _posts;
+    private string _postTitle = "";
+    private string _postBody = "";
+    private string _msg = "";
 
-<PageTitle>Index</PageTitle>
+    protected override async Task OnInitializedAsync()
+    {
+        _msg = "";
+        try
+        {
+            _posts = await PostService.GetAsync(null, null, null, null);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            _msg = e.Message;
+        }
 
-<h1>Hello, world!</h1>
+    }
 
-Welcome to your new app.
-
-<SurveyPrompt Title="How is Blazor working for you?"/>
+}

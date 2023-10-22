@@ -17,38 +17,9 @@
             <textarea placeholder="Write a post." @bind="_postBody"></textarea>
         </div>
         <div class="button-row">
-            @if (!string.IsNullOrEmpty(_msg))
-            {
-                <label style="color: red">@_msg</label>
-            }
             <button @onclick="Create" class="acceptbtn">Post</button>
         </div>
 </div>
-<div>
-    @if (_posts == null)
-    {
-    }
-    else if (!_posts.Any())
-    {
-        <p>No Todos to display</p>
-    }
-    else
-    {
-        @foreach (var item in _posts)
-        {
-            <div class="card">
-                <h6> @item.Author.Username</h6>
-                <h4 id="postTitle"> @item.Title</h4>
-                </div>
-        }
-        
-    }
-    @if (!string.IsNullOrEmpty(_msg))
-    {
-        <label style="color: red">@_msg</label>
-    }
-</div>
-
 @code {
     private IEnumerable<Post>? _posts;
     private string _postTitle = "";
@@ -101,7 +72,6 @@
             await PostService.CreateAsync(dto);
             _postTitle = "";
             _postBody = "";
-            OnInitializedAsync();
             NavMgr.NavigateTo(NavMgr.Uri);
         }
         catch (Exception e)
