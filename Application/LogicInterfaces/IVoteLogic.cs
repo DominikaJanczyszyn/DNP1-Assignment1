@@ -6,4 +6,7 @@ namespace Application.LogicInterfaces;
 public interface IVoteLogic
 {
     Task<Vote> CreateAsync(VoteCreationDto dto);
+    Task UpdateAsync(UpdateVoteDto dto);
+    Task<Vote> GetAsync(SearchVoteParametersDto searchParameters);
+    Task DeleteAsync(int postId, string username);
 }

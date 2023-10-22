@@ -152,13 +152,12 @@
         "Body": "Body of the Post"
       },
       "Body": "Comment 2 "
-    }
-  ],
-  "Votes": [
+    },
     {
+      "Id": 3,
       "Author": {
-        "Username": "Allan",
-        "Password": "password123"
+        "Username": "Dominika",
+        "Password": "password1"
       },
       "Post": {
         "Id": 1,
@@ -169,7 +168,8 @@
         "Title": "Title of the Post",
         "Body": "Body of the Post"
       },
-      "IsPositive": true
+      "Body": "kk"
     }
-  ]
+  ],
+  "Votes": []
 }

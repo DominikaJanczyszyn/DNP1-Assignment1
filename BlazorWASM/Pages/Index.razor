@@ -7,8 +7,8 @@
 @inject NavigationManager NavMgr
 @attribute [Authorize]
 @using System.Security.Claims
-<div class="card">
-<div>
+
+
     @if (_posts == null)
     {
     }
@@ -31,8 +31,6 @@
     {
         <label style="color: red">@_msg</label>
     }
-</div>
-</div>
 @code {
     private IEnumerable<Post>? _posts;
     private string _postTitle = "";

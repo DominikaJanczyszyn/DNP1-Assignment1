@@ -72,12 +72,12 @@
             await PostService.CreateAsync(dto);
             _postTitle = "";
             _postBody = "";
-            NavMgr.NavigateTo(NavMgr.Uri);
         }
         catch (Exception e)
         {
             Console.WriteLine(e);
             _msg = e.Message;
         }
+        NavMgr.NavigateTo(NavMgr.Uri);
     }
 }

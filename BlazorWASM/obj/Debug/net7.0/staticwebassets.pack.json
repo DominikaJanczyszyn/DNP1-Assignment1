@@ -77,6 +77,22 @@
       "PackagePath": "staticwebassets\\img\\Logout.png"
     },
     {
+      "Id": "C:\\Users\\Dominika\\RiderProjects\\DNP1-Assignment1\\BlazorWASM\\wwwroot\\img\\dislike.png",
+      "PackagePath": "staticwebassets\\img\\dislike.png"
+    },
+    {
+      "Id": "C:\\Users\\Dominika\\RiderProjects\\DNP1-Assignment1\\BlazorWASM\\wwwroot\\img\\dislikeAdded.png",
+      "PackagePath": "staticwebassets\\img\\dislikeAdded.png"
+    },
+    {
+      "Id": "C:\\Users\\Dominika\\RiderProjects\\DNP1-Assignment1\\BlazorWASM\\wwwroot\\img\\like.png",
+      "PackagePath": "staticwebassets\\img\\like.png"
+    },
+    {
+      "Id": "C:\\Users\\Dominika\\RiderProjects\\DNP1-Assignment1\\BlazorWASM\\wwwroot\\img\\likeAdded.png",
+      "PackagePath": "staticwebassets\\img\\likeAdded.png"
+    },
+    {
       "Id": "C:\\Users\\Dominika\\RiderProjects\\DNP1-Assignment1\\BlazorWASM\\wwwroot\\index.html",
       "PackagePath": "staticwebassets\\index.html"
     },
