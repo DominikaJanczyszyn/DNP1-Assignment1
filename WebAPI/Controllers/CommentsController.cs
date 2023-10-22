@@ -29,4 +29,20 @@ public class CommentsController : ControllerBase
             return StatusCode(500, e.Message);
         }
     }
+    
+    [HttpGet]
+    public async Task<ActionResult<IEnumerable<Comment>>> GetAsync([FromQuery]int? postId, [FromQuery] string? username, [FromQuery] string? body)
+    {
+        try
+        {
+            SearchCommentIdDto parameters = new(postId, username, body);
+            var comments = await _commentLogic.GetAsync(parameters);
+            return Ok(comments);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            return StatusCode(500, e.Message);
+        }
+    }
 }

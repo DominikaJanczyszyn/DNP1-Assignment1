@@ -14,6 +14,7 @@ builder.Services.AddScoped<IUserService, UserHttpClient>();
 builder.Services.AddScoped<IPostService, PostHttpClient>();
 builder.Services.AddScoped<IAuthService, JwtAuthHttpClient>();
 builder.Services.AddScoped<AuthenticationStateProvider, CustomAuthProvider>();
+builder.Services.AddScoped<ICommentService, CommentHttpClient>();
 AuthorizationPolicies.AddPolicies(builder.Services);
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https://localhost:5094") });
 

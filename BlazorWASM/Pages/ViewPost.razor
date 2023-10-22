@@ -1,36 +1,96 @@
 ﻿@page "/ViewPost/{id:int}"
 @using HttpClients.ClientInterfaces
 @using Assignment1.Models
+@using global::Shared.DTOs
+@using Assignment1.DTOs
+@using System.Security.Claims
 @inject IPostService postService;
+@inject ICommentService commentService;
 <div class="card">
-  @if (post == null)
-      {
-          <label>Loading...</label>
-      }
-  <div class="card">
-      <h6> @post.Author.Username</h6>
-      <h4 id="postTitle">@post.Title</h4>
-      <h4 id="postTitle">@post.Body</h4>
-  </div>
+    @if (post == null)
+    {
+        <label>Loading...</label>
+    }
+    <div class="card">
+        <h6> @post.Author.Username</h6>
+        <h4 id="postTitle">@post.Title</h4>
+        <h4 id="postTitle">@post.Body</h4>
+    </div>
+</div>
+<div>Comments : </div>
+<div class="card">
+    @foreach (var item in _comments)
+    {
+        <div >
+            <h6> @item.Author.Username</h6>
+            <h4 id="postTitle"> @item.Body</h4>
+        </div>
+    }
+</div>
+<div class="card">
+        <div class="form-group field">
+            <input type="text" placeholder="Write a comment" @bind="commentBody">
+        </div>
+        <div class="button-row">
+            <button @onclick="Create" class="acceptbtn">Comment</button>
+        </div>
 </div>
 @code {
+    
     [Parameter]
     public int id { get; set; }
-
     private Post post;
-
+    private IEnumerable<Comment>? _comments;
+    private string commentBody = "";
+    private string _msg = "";
+    
+    [CascadingParameter]
+    public Task<AuthenticationState> AuthState { get; set; } = null!;
+    private string? userName;
+    private bool isLoggedIn;
+   
     protected override async Task OnInitializedAsync()
     {
+        _msg = "";
+        AuthenticationState authState = await AuthState;
+        ClaimsPrincipal user = authState.User;
+        isLoggedIn = user.Identity != null;
+        
+        if (!isLoggedIn) return;
+        userName = user.Identity!.Name!;
         try
         {
             ICollection<Post> postData = await postService.GetAsync(id, null, null, null);
             post = postData.First(p => p.Id == id);
-            Console.WriteLine(post.Title);
+            SearchCommentIdDto dto = new SearchCommentIdDto(post.Id, null, null);
+            _comments = await commentService.GetAsync(dto);
         }
         catch (Exception e)
         {
             Console.WriteLine(e);
         }
         
+    }
+
+    private async Task Create()
+    {
+        if (string.IsNullOrEmpty(commentBody))
+        {
+            _msg = "Comment cannot be empty!";
+            return;
+        }
+        try
+        {
+            CommentCreationDto dto = new CommentCreationDto(userName, id, commentBody);
+            await commentService.CreateAsync(dto);
+            commentBody = "";
+            
+
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            _msg = e.Message;
+        }
     }
 }

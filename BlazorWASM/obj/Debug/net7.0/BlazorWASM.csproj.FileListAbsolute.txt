@@ -1686,6 +1686,7 @@ C:\Users\Dominika\RiderProjects\DNP1-Assignment1\BlazorWASM\obj\Debug\net7.0\sco
 C:\Users\Dominika\RiderProjects\DNP1-Assignment1\BlazorWASM\obj\Debug\net7.0\scopedcss\Pages\CreatePost.razor.rz.scp.css
 C:\Users\Dominika\RiderProjects\DNP1-Assignment1\BlazorWASM\obj\Debug\net7.0\scopedcss\Pages\Login.razor.rz.scp.css
 C:\Users\Dominika\RiderProjects\DNP1-Assignment1\BlazorWASM\obj\Debug\net7.0\scopedcss\Pages\LoginButtons.razor.rz.scp.css
+C:\Users\Dominika\RiderProjects\DNP1-Assignment1\BlazorWASM\obj\Debug\net7.0\scopedcss\Pages\ViewPost.razor.rz.scp.css
 C:\Users\Dominika\RiderProjects\DNP1-Assignment1\BlazorWASM\obj\Debug\net7.0\scopedcss\Shared\MainLayout.razor.rz.scp.css
 C:\Users\Dominika\RiderProjects\DNP1-Assignment1\BlazorWASM\obj\Debug\net7.0\scopedcss\Shared\NavMenu.razor.rz.scp.css
 C:\Users\Dominika\RiderProjects\DNP1-Assignment1\BlazorWASM\obj\Debug\net7.0\scopedcss\bundle\BlazorWASM.styles.css

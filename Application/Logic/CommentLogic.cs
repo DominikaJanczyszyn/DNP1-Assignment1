@@ -38,6 +38,12 @@ public class CommentLogic : ICommentLogic
         Comment created = await _commentDao.CreateAsync(comment);
         return created;
     }
+
+    public Task<IEnumerable<Comment>> GetAsync(SearchCommentIdDto searchParameters)
+    {
+       return _commentDao.GetAsync(searchParameters);
+    }
+
     private void ValidateComment(CommentCreationDto dto)
     {
         if (string.IsNullOrEmpty(dto.Body)) throw new Exception("Body can not be empty.");

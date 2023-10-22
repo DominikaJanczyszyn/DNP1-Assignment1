@@ -135,6 +135,23 @@
         "Body": "Body of the Post"
       },
       "Body": "Comment"
+    },
+    {
+      "Id": 2,
+      "Author": {
+        "Username": "Dominika",
+        "Password": "password1"
+      },
+      "Post": {
+        "Id": 1,
+        "Author": {
+          "Username": "Dominika",
+          "Password": "password1"
+        },
+        "Title": "Title of the Post",
+        "Body": "Body of the Post"
+      },
+      "Body": "Comment 2 "
     }
   ],
   "Votes": [

@@ -1,25 +1,5 @@
 @import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
-.field {
-    margin-top: 5px;
-    padding: 5px;
-}
-.card {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    transition: 0.3s;
-    width: 100%;
-    padding: 25px;
-    text-align: center;
-    margin: auto;
-    margin-top: 50px;
-    border-radius: 15px;
 
-}
-h6{
-    text-align: left;
-}
-#postTitle{
-    text-align: left;
-}
 html, body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
@@ -101,13 +81,12 @@ a, .btn-link {
         stroke-width: 0.6rem;
         transform-origin: 50% 50%;
         transform: rotate(-90deg);
-    }
-
-        .loading-progress circle:last-child {
+    }  
+.loading-progress circle:last-child {
             stroke: #1b6ec2;
-            stroke-dasharray: calc(3.141 * var(--blazor-load-percentage, 0%) * 0.8), 500%;
+    
             transition: stroke-dasharray 0.05s ease-in-out;
-        }
+}
 
 .loading-progress-text {
     position: absolute;
@@ -116,6 +95,29 @@ a, .btn-link {
     inset: calc(20vh + 3.25rem) 0 auto 0.2rem;
 }
 
-    .loading-progress-text:after {
-        content: var(--blazor-load-percentage-text, "Loading");
-    }
+.loading-progress-text:after {
+    
+}
+.field {
+    margin-top: 5px;
+    padding: 5px;
+}
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    width: 100%;
+    padding: 25px;
+    text-align: center;
+    margin: auto;
+    margin-top: 50px;
+    border-radius: 15px;
+
+}
+h6{
+    text-align: left;
+    padding: 10px;
+}
+#postTitle{
+    text-align: left;
+    font-weight: bold;
+}

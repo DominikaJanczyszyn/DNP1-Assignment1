@@ -1,4 +1,5 @@
 ﻿using Application.DAO_Interfaces;
+using Assignment1.DTOs;
 using Assignment1.Models;
 
 namespace FileDataAccess.DAOs;
@@ -28,5 +29,24 @@ public class CommentFileDao : ICommentDao
         _context.SaveChanges();
 
         return Task.FromResult(comment);
+    }
+
+    public Task<IEnumerable<Comment>> GetAsync(SearchCommentIdDto searchParameters)
+    {
+        IEnumerable<Comment> result = _context.Comments.AsEnumerable();
+        if (searchParameters.PostId != null)
+        {
+            result = _context.Comments.Where(c => c.Post.Id == searchParameters.PostId);
+        }
+        if (!string.IsNullOrEmpty(searchParameters.Username))
+        {
+            result = _context.Comments.Where(c => c.Author.Username.Equals(searchParameters.Username, StringComparison.OrdinalIgnoreCase));
+        }
+        if (!string.IsNullOrEmpty(searchParameters.Body))
+        {
+            result = _context.Comments.Where(c => c.Body.Contains(searchParameters.Body, StringComparison.OrdinalIgnoreCase));
+        }
+        
+        return Task.FromResult(result);
     }
 }
