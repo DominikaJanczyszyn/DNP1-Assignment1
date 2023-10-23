@@ -6,5 +6,5 @@ namespace HttpClients.ClientInterfaces;
 public interface ICommentService
 {
     Task CreateAsync(CommentCreationDto dto);
-    Task<ICollection<Comment>> GetAsync(SearchCommentIdDto searchParameters);
+    Task<ICollection<Comment>> GetAsync(int postId, string? username, string? body);
 }

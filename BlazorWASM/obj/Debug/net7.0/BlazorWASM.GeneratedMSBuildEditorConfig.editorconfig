@@ -16,14 +16,6 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\Dominika\RiderProjects\DNP1-Assignment1\BlazorWASM
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/Dominika/RiderProjects/DNP1-Assignment1/BlazorWASM/App.razor]
-build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/Dominika/RiderProjects/DNP1-Assignment1/BlazorWASM/Pages/Index.razor]
-build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Users/Dominika/RiderProjects/DNP1-Assignment1/BlazorWASM/Shared/SurveyPrompt.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFN1cnZleVByb21wdC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
@@ -31,6 +23,10 @@ build_metadata.AdditionalFiles.CssScope =
 [C:/Users/Dominika/RiderProjects/DNP1-Assignment1/BlazorWASM/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Dominika/RiderProjects/DNP1-Assignment1/BlazorWASM/App.razor]
+build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-4ybaa5njy5
 
 [C:/Users/Dominika/RiderProjects/DNP1-Assignment1/BlazorWASM/Pages/CreateAccount.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3JlYXRlQWNjb3VudC5yYXpvcg==
@@ -40,6 +36,18 @@ build_metadata.AdditionalFiles.CssScope = b-vekdg08ehg
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ3JlYXRlUG9zdC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-ceegisofnu
 
+[C:/Users/Dominika/RiderProjects/DNP1-Assignment1/BlazorWASM/Pages/DisLikeButton.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGlzTGlrZUJ1dHRvbi5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-lg0ivguwc6
+
+[C:/Users/Dominika/RiderProjects/DNP1-Assignment1/BlazorWASM/Pages/Index.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-ge7fcwz0nr
+
+[C:/Users/Dominika/RiderProjects/DNP1-Assignment1/BlazorWASM/Pages/LikeButton.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTGlrZUJ1dHRvbi5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-yx6j95p9ar
+
 [C:/Users/Dominika/RiderProjects/DNP1-Assignment1/BlazorWASM/Pages/Login.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW4ucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-xm4hp2nt19
@@ -47,6 +55,10 @@ build_metadata.AdditionalFiles.CssScope = b-xm4hp2nt19
 [C:/Users/Dominika/RiderProjects/DNP1-Assignment1/BlazorWASM/Pages/LoginButtons.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9naW5CdXR0b25zLnJhem9y
 build_metadata.AdditionalFiles.CssScope = b-7bsgaluun0
+
+[C:/Users/Dominika/RiderProjects/DNP1-Assignment1/BlazorWASM/Pages/Modal.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTW9kYWwucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-5coiak08x2
 
 [C:/Users/Dominika/RiderProjects/DNP1-Assignment1/BlazorWASM/Pages/ViewPost.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVmlld1Bvc3QucmF6b3I=

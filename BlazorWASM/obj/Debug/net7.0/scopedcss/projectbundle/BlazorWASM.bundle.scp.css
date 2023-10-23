@@ -1,3 +1,26 @@
+/* /App.razor.rz.scp.css */
+.loginbtn[b-4ybaa5njy5] {
+    background-color: #318fef;
+    width: 30%;
+    resize: vertical;
+    padding:5px;
+    border-radius:15px;
+    border: 0;
+    margin-left: 15px;
+    margin-right: 15px;
+    box-shadow:4px 4px 10px rgba(0,0,0,0.06);
+    height:50px;
+    text-decoration-color: white;
+}
+
+.loginbtn:hover[b-4ybaa5njy5]{
+    transform: scale(1.1);
+}
+#buttonRow[b-4ybaa5njy5]{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 /* /Pages/CreateAccount.razor.rz.scp.css */
 .card[b-vekdg08ehg] {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
@@ -14,16 +37,28 @@
 }
 
 .loginbtn[b-vekdg08ehg] {
-    background-color:lightgreen;
-    border-radius: 5px;
-    padding: 5px;
-    padding-left: 10px;
-    padding-right: 10px;
+    background-color: #318fef;
+    width: 80%;
+    resize: vertical;
+    padding:5px;
+    border-radius:15px;
+    border:0;
+    box-shadow:4px 4px 10px rgba(0,0,0,0.06);
+    height:50px;
+    text-decoration-color: white;
 }
 
 .loginbtn:hover[b-vekdg08ehg]{
     transform: scale(1.1);
-    box-shadow: 0 2px 10px 2px #3f3f3f;
+}
+input[b-vekdg08ehg]{
+    width:100%;
+    resize: vertical;
+    padding:5px;
+    border-radius:15px;
+    border: 3px solid #ccc;
+    box-shadow:4px 4px 10px rgba(0,0,0,0.06);
+    height:50px;
 }
 /* /Pages/CreatePost.razor.rz.scp.css */
 .acceptbtn[b-ceegisofnu] {
@@ -58,6 +93,41 @@ input[b-ceegisofnu]{
     box-shadow:4px 4px 10px rgba(0,0,0,0.06);
     height:50px;
 }
+/* /Pages/DisLikeButton.razor.rz.scp.css */
+.icon[b-lg0ivguwc6] {
+    width: 30px;
+    cursor: pointer;
+}
+/* /Pages/Index.razor.rz.scp.css */
+.post-header[b-ge7fcwz0nr] {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.user-info[b-ge7fcwz0nr] {
+    display: flex;
+    align-items: center;
+}
+.avatar[b-ge7fcwz0nr] {
+    width: 50px; /* Adjust the size of the avatar image */
+    border-radius: 50%; /* Make it a circle if the image is square */
+    margin-right: 10px; /* Add some space between avatar and username */
+}
+
+.username[b-ge7fcwz0nr] {
+    font-weight: bold;
+}
+#postTitle[b-ge7fcwz0nr] {
+    font-size: 18px; /* Adjust the title font size as needed */
+    font-weight: bold;
+    text-align: left;
+}
+/* /Pages/LikeButton.razor.rz.scp.css */
+.icon[b-yx6j95p9ar] {
+    width: 30px;
+    cursor: pointer;
+}
 /* /Pages/Login.razor.rz.scp.css */
 .card[b-xm4hp2nt19] {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
@@ -74,32 +144,126 @@ input[b-ceegisofnu]{
 }
 
 .loginbtn[b-xm4hp2nt19] {
-    background-color:lightgreen;
-    border-radius: 5px;
-    padding: 5px;
-    padding-left: 10px;
-    padding-right: 10px;
+    background-color: #318fef;
+    width: 80%;
+    resize: vertical;
+    padding:5px;
+    border-radius:15px;
+    border:0;
+    box-shadow:4px 4px 10px rgba(0,0,0,0.06);
+    height:50px;
+    text-decoration-color: white;
 }
 
 .loginbtn:hover[b-xm4hp2nt19]{
     transform: scale(1.1);
-    box-shadow: 0 2px 10px 2px #3f3f3f;
+}
+input[b-xm4hp2nt19]{
+    width:100%;
+    resize: vertical;
+    padding:5px;
+    border-radius:15px;
+    border: 3px solid #ccc;
+    box-shadow:4px 4px 10px rgba(0,0,0,0.06);
+    height:50px;
 }
 /* /Pages/LoginButtons.razor.rz.scp.css */
 .icon[b-7bsgaluun0] {
     width: 30px;
     cursor: pointer;
 }
+/* /Pages/Modal.razor.rz.scp.css */
+.modal-background[b-5coiak08x2] { /* This style class makes the background darker, and un-clickable */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.47); /* Black w/ opacity */
+    display:block;
+}
+
+/* Modal Content/Box */
+.modal-box[b-5coiak08x2] {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #000000;
+    /*display:inline-block;*/
+    width: 30%; /* Could be more or less, depending on screen size */
+    min-width: 300px;
+    border-radius: 25px;
+    box-shadow: 0 5px 30px 15px #3f3f3f;
+}
 /* /Pages/ViewPost.razor.rz.scp.css */
-h6[b-i0ygq2nqkk]{
-    text-align: left;
-    padding: 25px;
+.post-header[b-i0ygq2nqkk] {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
 }
-#postTitle[b-i0ygq2nqkk]{
-    text-align: left;
+
+.user-info[b-i0ygq2nqkk] {
+    display: flex;
+    align-items: center;
+}
+#commentLine[b-i0ygq2nqkk]{
+    display: flex;
+    align-items: center;
+}
+textarea[b-i0ygq2nqkk]{
+    width: 80%;
+    resize: vertical;
+    padding:5px;
+    border-radius:15px;
+    border: 3px solid #ccc;
+    box-shadow:4px 4px 10px rgba(0,0,0,0.06);
+    height:50px;
+}
+#commentbtn[b-i0ygq2nqkk] {
+    background-color: #318fef;
+    width:20%;
+    resize: vertical;
+    padding:5px;
+    border-radius:15px;
+    border:0;
+    box-shadow:4px 4px 10px rgba(0,0,0,0.06);
+    height:50px;
+}
+
+.avatar[b-i0ygq2nqkk] {
+    width: 50px; /* Adjust the size of the avatar image */
+    border-radius: 50%; /* Make it a circle if the image is square */
+    margin-right: 10px; /* Add some space between avatar and username */
+}
+
+.username[b-i0ygq2nqkk] {
     font-weight: bold;
-    padding: 25px;
 }
+
+.action-buttons[b-i0ygq2nqkk] {
+    display: flex;
+}
+
+#LikeButton[b-i0ygq2nqkk],
+#DisLikeButton[b-i0ygq2nqkk] {
+    margin-right: 50px; /* Increase the space between the Like and Dislike buttons */
+}
+
+#postTitle[b-i0ygq2nqkk] {
+    font-size: 18px; /* Adjust the title font size as needed */
+    font-weight: bold;
+    text-align: left;
+}
+
+.postBody[b-i0ygq2nqkk] {
+    margin-top: 10px; /* Add some space between the title and body */
+    text-align: left;
+}
+
 /* /Shared/MainLayout.razor.rz.scp.css */
 .page[b-jk00ermrez] {
     position: relative;

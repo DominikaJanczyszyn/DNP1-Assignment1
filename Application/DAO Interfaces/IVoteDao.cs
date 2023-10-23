@@ -7,7 +7,7 @@ public interface IVoteDao
 {
     Task<Vote> CreateAsync(Vote vote);
     Task UpdateAsync(Vote vote);
-    Task<Vote> GetAsync(SearchVoteParametersDto searchParameters);
+    Task<IEnumerable<Vote>> GetAsync(SearchVoteParametersDto searchParameters);
 
-    Task DeleteAsync(int postId, string username);
+    Task DeleteAsync(int id);
 }

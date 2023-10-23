@@ -2,18 +2,15 @@
 @using HttpClients.ClientInterfaces
 @inject IAuthService authService
 @inject NavigationManager navMgr
-<h3>Login</h3>
 <AuthorizeView>
     <NotAuthorized>
         <div class="card">
             <h3>Please login</h3>
             <div class="field">
-                <label>User name:</label>
-                <input type="text" @bind="userName"/>
+                <input placeholder="Username" type="text" @bind="userName"/>
             </div>
             <div class="field">
-                <label style="text-align: center">Password:</label>
-                <input type="password" @bind="password"/>
+                <input placeholder="Password" type="password" @bind="password"/>
             </div>
             @if (!string.IsNullOrEmpty(errorLabel))
             {

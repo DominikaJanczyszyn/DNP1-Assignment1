@@ -1,0 +1,22 @@
+.loginbtn {
+    background-color: #318fef;
+    width: 30%;
+    resize: vertical;
+    padding:5px;
+    border-radius:15px;
+    border: 0;
+    margin-left: 15px;
+    margin-right: 15px;
+    box-shadow:4px 4px 10px rgba(0,0,0,0.06);
+    height:50px;
+    text-decoration-color: white;
+}
+
+.loginbtn:hover{
+    transform: scale(1.1);
+}
+#buttonRow{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

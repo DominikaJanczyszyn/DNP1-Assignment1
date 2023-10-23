@@ -13,7 +13,7 @@ public class PostFileDao : IPostDao
         _context = context;
     }
 
-    public Task<Post> CreateAsync(Post post)
+    public Task<Post?> CreateAsync(Post? post)
     {
         int id = 1;
         if (_context.Posts.Any())
@@ -30,9 +30,9 @@ public class PostFileDao : IPostDao
         return Task.FromResult(post);
     }
 
-    public Task<IEnumerable<Post>> GetAsync(SearchPostParametersDto searchParameters)
+    public Task<IEnumerable<Post?>> GetAsync(SearchPostParametersDto searchParameters)
     {
-        IEnumerable<Post> result = _context.Posts.AsEnumerable();
+        IEnumerable<Post?> result = _context.Posts.AsEnumerable();
                 if (searchParameters.PostId != null)
                 {
                     result = _context.Posts.Where(p => p.Id == searchParameters.PostId);

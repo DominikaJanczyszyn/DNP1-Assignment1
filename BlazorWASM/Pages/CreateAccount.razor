@@ -2,38 +2,42 @@
 @using HttpClients.ClientInterfaces
 @using Assignment1.DTOs
 @inject IUserService userService
+
 @inject NavigationManager navMgr
 <div class="card">
-            <h3>Create an Account</h3>
-            <div class="field">
-                <label>User name:</label>
-                <input type="text" @bind="_userName"/>
-            </div>
-            <div class="field">
-                <label style="text-align: center">Password:</label>
-                <input type="password" @bind="password"/>
-            </div> 
-            <div class="field">
-                <label style="text-align: center">Repeat Password:</label>
-                <input type="password" @bind="repeatPassword"/>
-                </div>
-            @if (!string.IsNullOrEmpty(errorLabel))
-            {
-                <div class="field">
-                    <label style="color: red">
-                        @errorLabel
-                    </label>
-                </div>
-            }
-            <div class="field">
-                <button class="loginbtn" @onclick="CreateAsync">Create an Account</button>
-            </div>
+    <h3>Create an Account</h3>
+    <div class="field">
+        <input placeholder="Username" type="text" @bind="_userName"/>
+    </div>
+    <div class="field">
+        <input placeholder="Password" type="password" @bind="password"/>
+    </div> 
+    <div class="field">
+        <input placeholder="Repeat Password" type="password" @bind="repeatPassword"/>
+    </div>
+    @if (!string.IsNullOrEmpty(errorLabel))
+    {
+        <div class="field">
+            <label style="color: red">
+                @errorLabel
+            </label>
         </div>
+    }
+    <div class="field">
+        <button class="loginbtn" @onclick="CreateAsync">Create an Account</button>
+    </div>
+</div>
+
+<Modal ShowModal="showModal">
+    <p>You have successfully created an Account! You should log in now!</p>
+    <button @onclick="@Proceed">Wonderful! Let's log in!</button>
+</Modal>
 @code {
     private string _userName = "";
     private string password = "";
     private string repeatPassword = "";
     private string errorLabel = "";
+    private bool showModal;
 
     private async Task CreateAsync()
     {
@@ -61,13 +65,19 @@
         {
             UserCreationDto dto = new(_userName, password);
             await userService.CreateAsync(dto);
-            errorLabel = "Account Created, Hello " + _userName;
-            navMgr.NavigateTo("/Login");
+            showModal = true;
+
         }
         catch (Exception e)
         {
             Console.WriteLine(e);
             errorLabel = $"Error: {e.Message}";
         }
+        
+    }
+    private void Proceed()
+    {
+        showModal = false;
+        navMgr.NavigateTo("/Login");
     }
 }

@@ -1,47 +1,65 @@
 ﻿@page "/ViewPost/{id:int}"
 @using HttpClients.ClientInterfaces
 @using Assignment1.Models
-@using global::Shared.DTOs
 @using Assignment1.DTOs
 @using System.Security.Claims
 @inject IPostService postService;
 @inject ICommentService commentService;
+@inject IVoteService voteService;
+@inject NavigationManager NavMgr
 
 @if (post == null)
-    {
-        <label>Loading...</label>
-    }
-    <div class="card">
-        <h6> @post.Author.Username</h6>
-        <h4 id="postTitle">@post.Title</h4>
-        <h4 id="postTitle">@post.Body</h4>
-        <img class="icon" src="img/like.png">
-        <img class="icon" src="img/dislike.png">
+{
+    <label>Loading...</label>
+}
+<div class="card">
+    <div class="post-header">
+        <div class="user-info">
+            <img class="avatar" src="img/avatar.png" />
+            <h6 class="username">@post.Author.Username</h6>
+        </div>
     </div>
-
-<div>Comments : </div>
-
-    @foreach (var item in _comments)
+    <h4 id="postTitle">@post.Title</h4>
+    <p class="postBody">@post.Body</p>
+    <div class="action-buttons">
+        <div id="LikeButton">
+            <LikeButton postId="@id"/> 
+            <div>@numberOfPosiviteVotes</div>
+        </div>
+        <div id="DisLikeButton">
+            <DisLikeButton postId="@id"/>
+            <div>@numberOfNegativeVotes</div>
+        </div>
+    </div>
+</div>
+<h4 style="font-weight: bold">Comments :</h4>
+ @foreach (var item in _comments)
     {
         <div class="card">
-            <h6> @item.Author.Username</h6>
-            <h4 id="postTitle"> @item.Body</h4>
+            <div class="post-header">
+                <div class="user-info">
+                    <img class="avatar" src="img/avatar.png"/>
+                    <h6 class="username"> @item.Author.Username</h6>
+                </div>
+                </div>
+            <p class="postBody"> @item.Body</p>
         </div>
     }
 <div class="card">
-    <div class="form-group field">
-        <input type="text" placeholder="Write a comment" @bind="commentBody">
-    </div>
-    <div class="button-row">
-        <button @onclick="Create" class="acceptbtn">Comment</button>
+    <div id="commentLine">
+        <textarea placeholder="Write a comment" @bind="commentBody"></textarea>
+        <button id="commentbtn" @onclick="Create" class="acceptbtn">Comment</button>
     </div>
 </div>
 <div>@_msg</div>
+
 @code {
     
     [Parameter]
     public int id { get; set; }
-    private Post post;
+    
+    
+    private Post? post;
     private IEnumerable<Comment>? _comments;
     private string commentBody = "";
     private string _msg = "";
@@ -50,6 +68,11 @@
     public Task<AuthenticationState> AuthState { get; set; } = null!;
     private string? userName;
     private bool isLoggedIn;
+
+    private Vote vote;
+
+    private int numberOfPosiviteVotes = 0;
+    private int numberOfNegativeVotes = 0;
    
     protected override async Task OnInitializedAsync()
     {
@@ -62,14 +85,24 @@
         userName = user.Identity!.Name!;
         try
         {
-            ICollection<Post> postData = await postService.GetAsync(id, null, null, null);
-            post = postData.First(p => p.Id == id);
-            SearchCommentIdDto dto = new SearchCommentIdDto(post.Id, null, null);
-            _comments = await commentService.GetAsync(dto);
+            ICollection<Post?> postData = await postService.GetAsync(id, null, null, null);
+            post = postData.FirstOrDefault(p => p.Id == id);
+            _comments = await commentService.GetAsync(id, null, null);
+
+            ICollection<Vote> voteData = await voteService.GetAsync(id, null);
+            foreach (var item in voteData)
+            {
+                if (item.IsPositive == true)
+                {
+                    numberOfPosiviteVotes++;
+                }
+            }
+            numberOfNegativeVotes = voteData.Count(v => v.IsPositive == false);
         }
         catch (Exception e)
         {
             Console.WriteLine(e);
+            _msg = e.Message;
         }
         
     }
@@ -86,6 +119,8 @@
             CommentCreationDto dto = new CommentCreationDto(userName, id, commentBody);
             await commentService.CreateAsync(dto);
             commentBody = "";
+            NavMgr.NavigateTo("/");
+            NavMgr.NavigateTo($"/ViewPost/{id}");
             
 
         }

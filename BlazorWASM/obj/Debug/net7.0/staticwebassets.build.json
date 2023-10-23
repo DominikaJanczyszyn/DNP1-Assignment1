@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "KTVM1ZM3O3KSvc8XYz2Vo4hMElcqhXXm1MF0GWAK3oM=",
+  "Hash": "appZEC1Ph8Y8/u326HAeJYMiPyB19DjbFT/E14+Vmkg=",
   "Source": "BlazorWASM",
   "BasePath": "/",
   "Mode": "Root",
@@ -7308,6 +7308,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\icon-192.png"
+    },
+    {
+      "Identity": "C:\\Users\\Dominika\\RiderProjects\\DNP1-Assignment1\\BlazorWASM\\wwwroot\\img\\avatar.png",
+      "SourceId": "BlazorWASM",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Dominika\\RiderProjects\\DNP1-Assignment1\\BlazorWASM\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "img/avatar.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\avatar.png"
     },
     {
       "Identity": "C:\\Users\\Dominika\\RiderProjects\\DNP1-Assignment1\\BlazorWASM\\wwwroot\\img\\dislike.png",

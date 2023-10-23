@@ -31,7 +31,7 @@ public class CommentFileDao : ICommentDao
         return Task.FromResult(comment);
     }
 
-    public Task<IEnumerable<Comment>> GetAsync(SearchCommentIdDto searchParameters)
+    public Task<IEnumerable<Comment>> GetAsync(SearchCommentParametersDto searchParameters)
     {
         IEnumerable<Comment> result = _context.Comments.AsEnumerable();
         if (searchParameters.PostId != null)

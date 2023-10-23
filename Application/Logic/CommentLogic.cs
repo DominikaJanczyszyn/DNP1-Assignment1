@@ -26,20 +26,20 @@ public class CommentLogic : ICommentLogic
             throw new Exception($"User with username {dto.AuthorUsername} does not exist.");
         }
 
-        IEnumerable<Post> result = await _postDao.GetAsync(new SearchPostParametersDto(dto.PostId, null, null, null));
+        IEnumerable<Post?> result = await _postDao.GetAsync(new SearchPostParametersDto(dto.PostId, null, null, null));
         if (!result.Any())
         {
             throw new Exception($"Post with id {dto.PostId} does not exist.");
         }
 
-        Post post = result.First();
+        Post? post = result.First();
         ValidateComment(dto);
         Comment comment = new Comment(user, post, dto.Body);
         Comment created = await _commentDao.CreateAsync(comment);
         return created;
     }
 
-    public Task<IEnumerable<Comment>> GetAsync(SearchCommentIdDto searchParameters)
+    public Task<IEnumerable<Comment>> GetAsync(SearchCommentParametersDto searchParameters)
     {
        return _commentDao.GetAsync(searchParameters);
     }

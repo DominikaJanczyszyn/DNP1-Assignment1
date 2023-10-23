@@ -6,5 +6,5 @@ namespace Application.DAO_Interfaces;
 public interface ICommentDao
 {
     Task<Comment> CreateAsync(Comment comment);
-    Task<IEnumerable<Comment>> GetAsync(SearchCommentIdDto searchParameters);
+    Task<IEnumerable<Comment>> GetAsync(SearchCommentParametersDto searchParameters);
 }

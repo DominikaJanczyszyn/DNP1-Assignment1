@@ -15,6 +15,14 @@
     {
       "Username": "Ewa",
       "Password": "Pass1234"
+    },
+    {
+      "Username": "Kasia",
+      "Password": "12345678"
+    },
+    {
+      "Username": "Asia",
+      "Password": "12121212"
     }
   ],
   "Posts": [
@@ -116,6 +124,15 @@
       },
       "Title": "mm",
       "Body": "sssssssssssssss"
+    },
+    {
+      "Id": 12,
+      "Author": {
+        "Username": "Dominika",
+        "Password": "password1"
+      },
+      "Title": "costam",
+      "Body": "costma"
     }
   ],
   "Comments": [
@@ -169,7 +186,144 @@
         "Body": "Body of the Post"
       },
       "Body": "kk"
+    },
+    {
+      "Id": 4,
+      "Author": {
+        "Username": "Dominika",
+        "Password": "password1"
+      },
+      "Post": {
+        "Id": 1,
+        "Author": {
+          "Username": "Dominika",
+          "Password": "password1"
+        },
+        "Title": "Title of the Post",
+        "Body": "Body of the Post"
+      },
+      "Body": "ddd"
+    },
+    {
+      "Id": 5,
+      "Author": {
+        "Username": "Kasia",
+        "Password": "12345678"
+      },
+      "Post": {
+        "Id": 1,
+        "Author": {
+          "Username": "Dominika",
+          "Password": "password1"
+        },
+        "Title": "Title of the Post",
+        "Body": "Body of the Post"
+      },
+      "Body": "cooo"
+    },
+    {
+      "Id": 6,
+      "Author": {
+        "Username": "Dominika",
+        "Password": "password1"
+      },
+      "Post": {
+        "Id": 1,
+        "Author": {
+          "Username": "Dominika",
+          "Password": "password1"
+        },
+        "Title": "Title of the Post",
+        "Body": "Body of the Post"
+      },
+      "Body": "kkkk"
+    },
+    {
+      "Id": 7,
+      "Author": {
+        "Username": "Dominika",
+        "Password": "password1"
+      },
+      "Post": {
+        "Id": 1,
+        "Author": {
+          "Username": "Dominika",
+          "Password": "password1"
+        },
+        "Title": "Title of the Post",
+        "Body": "Body of the Post"
+      },
+      "Body": "ok"
+    },
+    {
+      "Id": 8,
+      "Author": {
+        "Username": "Dominika",
+        "Password": "password1"
+      },
+      "Post": {
+        "Id": 2,
+        "Author": {
+          "Username": "Allan",
+          "Password": "password123"
+        },
+        "Title": "title ",
+        "Body": "somesing "
+      },
+      "Body": "ok"
     }
   ],
-  "Votes": []
+  "Votes": [
+    {
+      "Id": 0,
+      "Author": {
+        "Username": "Kasia",
+        "Password": "12345678"
+      },
+      "Post": {
+        "Id": 1,
+        "Author": {
+          "Username": "Dominika",
+          "Password": "password1"
+        },
+        "Title": "Title of the Post",
+        "Body": "Body of the Post"
+      },
+      "IsPositive": true
+    },
+    {
+      "Id": 0,
+      "Author": {
+        "Username": "Dominika",
+        "Password": "password1"
+      },
+      "Post": {
+        "Id": 1,
+        "Author": {
+          "Username": "Dominika",
+          "Password": "password1"
+        },
+        "Title": "Title of the Post",
+        "Body": "Body of the Post"
+      },
+      "IsPositive": false
+    },
+    {
+      "Id": 0,
+      "Author": {
+        "Username": "Dominika",
+        "Password": "password1"
+      },
+      "Post": {
+        "Id": 2,
+        "Author": {
+          "Username": "Allan",
+          "Password": "password123"
+        },
+        "Title": "title ",
+        "Body": "somesing "
+      },
+      "IsPositive": true
+    }
+  ]
 }

@@ -13,14 +13,26 @@
 }
 
 .loginbtn[b-xm4hp2nt19] {
-    background-color:lightgreen;
-    border-radius: 5px;
-    padding: 5px;
-    padding-left: 10px;
-    padding-right: 10px;
+    background-color: #318fef;
+    width: 80%;
+    resize: vertical;
+    padding:5px;
+    border-radius:15px;
+    border:0;
+    box-shadow:4px 4px 10px rgba(0,0,0,0.06);
+    height:50px;
+    text-decoration-color: white;
 }
 
 .loginbtn:hover[b-xm4hp2nt19]{
     transform: scale(1.1);
-    box-shadow: 0 2px 10px 2px #3f3f3f;
+}
+input[b-xm4hp2nt19]{
+    width:100%;
+    resize: vertical;
+    padding:5px;
+    border-radius:15px;
+    border: 3px solid #ccc;
+    box-shadow:4px 4px 10px rgba(0,0,0,0.06);
+    height:50px;
 }

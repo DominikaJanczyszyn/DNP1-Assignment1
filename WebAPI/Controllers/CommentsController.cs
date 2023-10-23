@@ -31,11 +31,11 @@ public class CommentsController : ControllerBase
     }
     
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<Comment>>> GetAsync([FromQuery]int? postId, [FromQuery] string? username, [FromQuery] string? body)
+    public async Task<ActionResult<IEnumerable<Comment>>> GetAsync([FromQuery]int postId, [FromQuery] string? username, [FromQuery] string? body)
     {
         try
         {
-            SearchCommentIdDto parameters = new(postId, username, body);
+            SearchCommentParametersDto parameters = new(postId, username, body);
             var comments = await _commentLogic.GetAsync(parameters);
             return Ok(comments);
         }

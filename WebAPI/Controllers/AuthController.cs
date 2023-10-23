@@ -28,9 +28,16 @@ public class AuthController : ControllerBase
         try
         {
             User? user = await userLogic.GetByUsernameAsync(userLoginDto.Username);
-            string token = GenerateJwt(user);
-    
-            return Ok(token);
+            if(user.Password.Equals(userLoginDto.Password))
+            {
+               string token = GenerateJwt(user); 
+               return Ok(token);
+            }
+         
+            
+            return BadRequest("Incorect password.");
+            
+            
         }
         catch (Exception e)
         {

@@ -1,12 +1,12 @@
 ﻿namespace Assignment1.DTOs;
 
-public class SearchCommentIdDto
+public class SearchCommentParametersDto
 {
-    public int? PostId { get; }
+    public int PostId { get; }
     public string? Username { get; }
     public string? Body { get; }
 
-    public SearchCommentIdDto(int? postId, string? username, string? body)
+    public SearchCommentParametersDto(int postId, string? username, string? body)
     {
         PostId = postId;
         Username = username;

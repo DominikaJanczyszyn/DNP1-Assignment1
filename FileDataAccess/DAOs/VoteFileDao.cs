@@ -15,7 +15,15 @@ public class VoteFileDao : IVoteDao
 
     public Task<Vote> CreateAsync(Vote vote)
     {
-        
+
+        int id = 1;
+        if (_context.Votes.Any())
+        {
+            id = _context.Votes.Max((p => p.Id));
+            id++;
+        }
+
+        vote.Id = id;
         _context.Votes.Add(vote);
         _context.SaveChanges();
         return Task.FromResult(vote);
@@ -37,22 +45,25 @@ public class VoteFileDao : IVoteDao
         return Task.CompletedTask;
     }
 
-    public Task<Vote> GetAsync(SearchVoteParametersDto searchParameters)
+    public Task<IEnumerable<Vote>> GetAsync(SearchVoteParametersDto searchParameters)
     {
-        Vote? result = _context.Votes.FirstOrDefault(v =>
-            (v.Post.Id == searchParameters.PostId && v.Author.Username == searchParameters.Username));
-        if (result == null)
+        IEnumerable<Vote> result = _context.Votes.AsEnumerable();
+        if (searchParameters.PostId != null)
         {
-            throw new Exception("Vote not found!");
+            result = _context.Votes.Where(v => v.Post.Id== searchParameters.PostId);
+        }
+
+        if (!string.IsNullOrEmpty(searchParameters.Username))
+        {
+            result = _context.Votes.Where(v => v.Author.Username.Equals(searchParameters.Username));
         }
 
         return Task.FromResult(result);
     }
 
-    public Task DeleteAsync(int postId, string username)
+    public Task DeleteAsync(int id)
     {
-        Vote? result = _context.Votes.FirstOrDefault(v =>
-            (v.Post.Id == postId && v.Author.Username == username));
+        Vote? result = _context.Votes.FirstOrDefault(v => v.Id == id);
         if (result == null)
         {
             throw new Exception("Vote not found!");

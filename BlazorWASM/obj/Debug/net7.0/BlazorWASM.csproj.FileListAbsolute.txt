@@ -1685,7 +1685,6 @@ C:\Users\Dominika\RiderProjects\DNP1-Assignment1\BlazorWASM\obj\Debug\net7.0\sta
 C:\Users\Dominika\RiderProjects\DNP1-Assignment1\BlazorWASM\obj\Debug\net7.0\scopedcss\Pages\CreateAccount.razor.rz.scp.css
 C:\Users\Dominika\RiderProjects\DNP1-Assignment1\BlazorWASM\obj\Debug\net7.0\scopedcss\Pages\CreatePost.razor.rz.scp.css
 C:\Users\Dominika\RiderProjects\DNP1-Assignment1\BlazorWASM\obj\Debug\net7.0\scopedcss\Pages\Login.razor.rz.scp.css
-C:\Users\Dominika\RiderProjects\DNP1-Assignment1\BlazorWASM\obj\Debug\net7.0\scopedcss\Pages\LoginButtons.razor.rz.scp.css
 C:\Users\Dominika\RiderProjects\DNP1-Assignment1\BlazorWASM\obj\Debug\net7.0\scopedcss\Pages\ViewPost.razor.rz.scp.css
 C:\Users\Dominika\RiderProjects\DNP1-Assignment1\BlazorWASM\obj\Debug\net7.0\scopedcss\Shared\MainLayout.razor.rz.scp.css
 C:\Users\Dominika\RiderProjects\DNP1-Assignment1\BlazorWASM\obj\Debug\net7.0\scopedcss\Shared\NavMenu.razor.rz.scp.css
@@ -1696,3 +1695,9 @@ C:\Users\Dominika\RiderProjects\DNP1-Assignment1\BlazorWASM\obj\Debug\net7.0\Bla
 C:\Users\Dominika\RiderProjects\DNP1-Assignment1\BlazorWASM\obj\Debug\net7.0\refint\BlazorWASM.dll
 C:\Users\Dominika\RiderProjects\DNP1-Assignment1\BlazorWASM\obj\Debug\net7.0\BlazorWASM.pdb
 C:\Users\Dominika\RiderProjects\DNP1-Assignment1\BlazorWASM\obj\Debug\net7.0\ref\BlazorWASM.dll
+C:\Users\Dominika\RiderProjects\DNP1-Assignment1\BlazorWASM\obj\Debug\net7.0\scopedcss\Pages\Index.razor.rz.scp.css
+C:\Users\Dominika\RiderProjects\DNP1-Assignment1\BlazorWASM\obj\Debug\net7.0\scopedcss\Pages\DisLikeButton.razor.rz.scp.css
+C:\Users\Dominika\RiderProjects\DNP1-Assignment1\BlazorWASM\obj\Debug\net7.0\scopedcss\Pages\LikeButton.razor.rz.scp.css
+C:\Users\Dominika\RiderProjects\DNP1-Assignment1\BlazorWASM\obj\Debug\net7.0\scopedcss\Pages\LoginButtons.razor.rz.scp.css
+C:\Users\Dominika\RiderProjects\DNP1-Assignment1\BlazorWASM\obj\Debug\net7.0\scopedcss\Pages\Modal.razor.rz.scp.css
+C:\Users\Dominika\RiderProjects\DNP1-Assignment1\BlazorWASM\obj\Debug\net7.0\scopedcss\App.razor.rz.scp.css

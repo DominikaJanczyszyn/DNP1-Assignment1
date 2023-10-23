@@ -19,7 +19,7 @@ public class PostsController : ControllerBase
     {
         try
         {
-            Post created = await _postLogic.CreateAsync(dto);
+            Post? created = await _postLogic.CreateAsync(dto);
             return Created($"/posts/{created.Id}", created);
         }
         catch (Exception e)
@@ -44,7 +44,7 @@ public class PostsController : ControllerBase
         }
     }
     
-    /*[HttpGet]
+    [HttpGet("{id:int}")]
     public async Task<ActionResult<Post>> GetByIdAsync([FromQuery]int id)
     {
         try
@@ -57,5 +57,5 @@ public class PostsController : ControllerBase
             Console.WriteLine(e);
             return StatusCode(500, e.Message);
         }
-    }*/
+    }
 }

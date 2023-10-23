@@ -6,5 +6,5 @@ namespace Application.LogicInterfaces;
 public interface ICommentLogic
 {
     Task<Comment> CreateAsync(CommentCreationDto dto);
-    Task<IEnumerable<Comment>> GetAsync(SearchCommentIdDto searchParameters);
+    Task<IEnumerable<Comment>> GetAsync(SearchCommentParametersDto searchParameters);
 }

@@ -13,9 +13,5 @@ public class Post
         Title = title;
         Body = body;
     }
-
-    public string toString()
-    {
-        return $"{Id}, {Title}, {Body}";
-    }
+    
 }

@@ -15,7 +15,7 @@ public class PostLogic : IPostLogic
         UserDao = userDao;
     }
 
-    public async Task<Post> CreateAsync(PostCreationDto dto)
+    public async Task<Post?> CreateAsync(PostCreationDto dto)
     {
         User? user = await UserDao.GetByUsernameAsync(dto.AuthorUsername);
         if (user == null)
@@ -23,13 +23,13 @@ public class PostLogic : IPostLogic
             throw new Exception($"User with username {dto.AuthorUsername} does not exist.");
         }
         ValidatePost(dto);
-        Post post = new Post(user, dto.Title, dto.Body);
-        Post created = await PostDao.CreateAsync(post);
+        Post? post = new Post(user, dto.Title, dto.Body);
+        Post? created = await PostDao.CreateAsync(post);
 
         return created;
     }
 
-    public Task<IEnumerable<Post>> GetAsync(SearchPostParametersDto searchParameters)
+    public Task<IEnumerable<Post?>> GetAsync(SearchPostParametersDto searchParameters)
     {
         return PostDao.GetAsync(searchParameters);
     }

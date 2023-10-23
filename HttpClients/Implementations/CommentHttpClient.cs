@@ -24,9 +24,10 @@ public class CommentHttpClient : ICommentService
         }
     }
 
-    public async Task<ICollection<Comment>> GetAsync(SearchCommentIdDto searchParameters)
+    public async Task<ICollection<Comment>> GetAsync(int id, string? username, string? body)
     {
-        HttpResponseMessage response = await _client.GetAsync("/Comments");
+        string query = ConstructQuery(id, username, body);
+        HttpResponseMessage response = await _client.GetAsync("/Comments" + query);
         string content = await response.Content.ReadAsStringAsync();
         if (!response.IsSuccessStatusCode)
         {
@@ -38,5 +39,23 @@ public class CommentHttpClient : ICommentService
             PropertyNameCaseInsensitive = true
         })!;
         return comments;
+    }
+    
+    private static string ConstructQuery(int id, string? username, string? body)
+    {
+        string query = "";
+        query += $"?postId={id}";
+        if (!string.IsNullOrEmpty(username))
+        {
+            query += string.IsNullOrEmpty(query) ? "?" : "&";
+            query += $"username={username}";
+        }
+        if (!string.IsNullOrEmpty(body))
+        {
+            query += string.IsNullOrEmpty(query) ? "?" : "&";
+            query += $"body={body}";
+        }
+        Console.Write(query);
+        return query;
     }
 }

@@ -6,7 +6,7 @@ namespace HttpClients.ClientInterfaces;
 public interface IVoteService
 {
     Task CreateAsync(VoteCreationDto dto);
-    Task<Vote> GetAsync(int postId, string username);
+    Task<ICollection<Vote>> GetAsync( int? postId, string? username);
     Task UpdateAsync(UpdateVoteDto dto);
-    Task DeleteAsync(int postId, string username);
+    Task DeleteAsync(int voteId);
 }

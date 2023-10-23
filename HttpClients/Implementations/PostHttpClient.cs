@@ -24,7 +24,7 @@ public class PostHttpClient : IPostService
         }
     }
 
-    public async Task<ICollection<Post>> GetAsync(int? id, string? username, string? titleContains, string? bodyContains)
+    public async Task<ICollection<Post?>> GetAsync(int? id, string? username, string? titleContains, string? bodyContains)
     {
         HttpResponseMessage response = await _client.GetAsync("/Posts");
         string content = await response.Content.ReadAsStringAsync();
@@ -33,7 +33,7 @@ public class PostHttpClient : IPostService
             throw new Exception(content);
         }
 
-        ICollection<Post> posts = JsonSerializer.Deserialize<ICollection<Post>>(content, new JsonSerializerOptions
+        ICollection<Post?> posts = JsonSerializer.Deserialize<ICollection<Post>>(content, new JsonSerializerOptions
         {
             PropertyNameCaseInsensitive = true
         })!;

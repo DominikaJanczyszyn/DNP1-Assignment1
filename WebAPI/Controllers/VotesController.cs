@@ -4,6 +4,7 @@ using Assignment1.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebAPI.Controllers;
+
 [ApiController]
 [Route("[controller]")]
 public class VotesController : ControllerBase
@@ -16,12 +17,12 @@ public class VotesController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<ActionResult<Vote>> CreateAsync([FromBody]VoteCreationDto dto)
+    public async Task<ActionResult<Vote>> CreateAsync([FromBody] VoteCreationDto dto)
     {
         try
         {
             Vote created = await _voteLogic.CreateAsync(dto);
-            return Created($"/votes/{created.Post}", created);
+            return Created($"/votes/{created.Post}&{created.Author}", created);
         }
         catch (Exception e)
         {
@@ -29,14 +30,14 @@ public class VotesController : ControllerBase
             return StatusCode(500, e.Message);
         }
     }
-    
+
     [HttpGet]
-    public async Task<ActionResult<Vote>> GetAsync([FromQuery] int? postId, [FromQuery] string? userName)
+    public async Task<ActionResult<Vote>> GetAsync([FromQuery] int? postId, [FromQuery] string? username)
     {
         try
         {
-            SearchVoteParametersDto parameters = new(postId, userName);
-            Vote vote = await _voteLogic.GetAsync(parameters);
+            SearchVoteParametersDto dto = new SearchVoteParametersDto(postId, username);
+            var vote = await _voteLogic.GetAsync(dto);
             return Ok(vote);
         }
         catch (Exception e)
@@ -45,7 +46,7 @@ public class VotesController : ControllerBase
             return StatusCode(500, e.Message);
         }
     }
-    
+
     [HttpPatch]
     public async Task<ActionResult> UpdateAsync([FromBody] UpdateVoteDto dto)
     {
@@ -60,13 +61,13 @@ public class VotesController : ControllerBase
             return StatusCode(500, e.Message);
         }
     }
-    
-    [HttpDelete]
-    public async Task<ActionResult> DeleteAsync([FromQuery] int postId, [FromQuery] string username)
+
+    [HttpDelete("{id:int}")]
+    public async Task<ActionResult> DeleteAsync([FromRoute] int id)
     {
         try
         {
-            await _voteLogic.DeleteAsync(postId, username);
+            await _voteLogic.DeleteAsync(id);
             return Ok();
         }
         catch (Exception e)

@@ -1,13 +1,9 @@
 ﻿@page "/"
 @using HttpClients.ClientInterfaces
-@using Assignment1.DTOs
 @using Assignment1.Models
-@inject IUserService UserService
 @inject IPostService PostService
 @inject NavigationManager NavMgr
 @attribute [Authorize]
-@using System.Security.Claims
-
 
     @if (_posts == null)
     {
@@ -21,8 +17,13 @@
         @foreach (var item in _posts)
         {
             <div class="card" @onclick="@(() => NavMgr.NavigateTo($"/ViewPost/{item.Id}"))">
-                <h6> @item.Author.Username</h6>
-                <h4 id="postTitle"> @item.Title</h4>
+                <div class="post-header">
+                    <div class="user-info">
+                        <img class="avatar" src="img/avatar.png" />
+                        <h6 class="username">@item.Author.Username</h6>
+                    </div>
+                </div>
+                <h4 id="postTitle">@item.Title</h4>
             </div>
         }
         

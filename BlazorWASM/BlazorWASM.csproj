@@ -16,4 +16,21 @@
       <ProjectReference Include="..\HttpClients\HttpClients.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Compile Remove="Pages\DisLikeButton.cs" />
+      <Compile Remove="Pages\UIComponents\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Remove="Pages\UIComponents\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Remove="Pages\UIComponents\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="Pages\UIComponents\**" />
+    </ItemGroup>
+
 </Project>

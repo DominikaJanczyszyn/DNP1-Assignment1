@@ -26,13 +26,13 @@ public class VoteLogic : IVoteLogic
             throw new Exception($"User with username {dto.AuthorUsername} does not exist.");
         }
 
-        IEnumerable<Post> result = await _postDao.GetAsync(new SearchPostParametersDto(dto.PostId, null, null, null));
+        IEnumerable<Post?> result = await _postDao.GetAsync(new SearchPostParametersDto(dto.PostId, null, null, null));
         if (!result.Any())
         {
             throw new Exception($"Post with id {dto.PostId} does not exist.");
         }
 
-        Post post = result.First();
+        Post? post = result.First();
 
         Vote vote = new Vote(user, post, dto.isPositive);
         Vote created = await _voteDao.CreateAsync(vote);
@@ -42,7 +42,8 @@ public class VoteLogic : IVoteLogic
     public async Task UpdateAsync(UpdateVoteDto dto)
     {
         SearchVoteParametersDto searchVoteParametersDto = new SearchVoteParametersDto(dto.Post.Id, dto.Author.Username);
-        Vote? existing = await _voteDao.GetAsync(searchVoteParametersDto);
+        IEnumerable<Vote> voteData = await _voteDao.GetAsync(searchVoteParametersDto);
+        Vote? existing = voteData.FirstOrDefault(v => (v.Post.Id == dto.Post.Id && v.Author.Username.Equals(dto.Author.Username)));
 
         if (existing == null)
         {
@@ -62,27 +63,20 @@ public class VoteLogic : IVoteLogic
         }
         if (dto.IsPositive == null)
         {
-            await _voteDao.DeleteAsync(dto.Post.Id, dto.Author.Username);
+            await _voteDao.DeleteAsync(existing.Id);
         }
         
         
         
     }
 
-    public Task<Vote> GetAsync(SearchVoteParametersDto searchParameters)
+    public Task<IEnumerable<Vote>> GetAsync(SearchVoteParametersDto searchParameters)
     {
         return _voteDao.GetAsync(searchParameters);
     }
 
-    public async Task DeleteAsync(int postId, string username)
+    public async Task DeleteAsync(int id)
     {
-        SearchVoteParametersDto searchVoteParametersDto = new SearchVoteParametersDto(postId, username);
-        Vote? existing = await _voteDao.GetAsync(searchVoteParametersDto);
-        if (existing == null)
-        {
-            throw new Exception("Vote not found!");
-        }
-
-        await _voteDao.DeleteAsync(postId, username);
+        await _voteDao.DeleteAsync(id);
     }
 }

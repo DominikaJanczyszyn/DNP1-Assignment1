@@ -77,6 +77,10 @@
       "PackagePath": "staticwebassets\\img\\Logout.png"
     },
     {
+      "Id": "C:\\Users\\Dominika\\RiderProjects\\DNP1-Assignment1\\BlazorWASM\\wwwroot\\img\\avatar.png",
+      "PackagePath": "staticwebassets\\img\\avatar.png"
+    },
+    {
       "Id": "C:\\Users\\Dominika\\RiderProjects\\DNP1-Assignment1\\BlazorWASM\\wwwroot\\img\\dislike.png",
       "PackagePath": "staticwebassets\\img\\dislike.png"
     },
