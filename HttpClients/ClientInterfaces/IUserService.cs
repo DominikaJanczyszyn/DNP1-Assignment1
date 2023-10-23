@@ -8,5 +8,4 @@ public interface IUserService
 {
     Task<IEnumerable<User>> GetUsers(string? usernameContains = null);
     Task CreateAsync(UserCreationDto dto);
-    Task<SearchUserParametersDto?> GetByUsernameAsync(string userName);
 }

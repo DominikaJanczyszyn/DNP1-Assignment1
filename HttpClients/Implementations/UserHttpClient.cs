@@ -46,19 +46,4 @@ public class UserHttpClient : IUserService
             throw new Exception(content);
         }
     }
-
-    public async Task<SearchUserParametersDto?> GetByUsernameAsync(string userName)
-    {
-        HttpResponseMessage response = await _client.GetAsync($"/Users/{userName}");
-        string content = await response.Content.ReadAsStringAsync();
-        if (!response.IsSuccessStatusCode)
-        {
-            throw new Exception(content);
-        }
-        SearchUserParametersDto user = JsonSerializer.Deserialize<SearchUserParametersDto>(content, new JsonSerializerOptions
-        {
-            PropertyNameCaseInsensitive = true
-        })!;
-        return user;
-    }
 }

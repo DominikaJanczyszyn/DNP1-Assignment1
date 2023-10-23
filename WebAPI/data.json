@@ -133,6 +133,15 @@
       },
       "Title": "costam",
       "Body": "costma"
+    },
+    {
+      "Id": 13,
+      "Author": {
+        "Username": "Dominika",
+        "Password": "password1"
+      },
+      "Title": "post",
+      "Body": "2333"
     }
   ],
   "Comments": [
@@ -271,45 +280,9 @@
         "Body": "somesing "
       },
       "Body": "ok"
-    }
-  ],
-  "Votes": [
-    {
-      "Id": 0,
-      "Author": {
-        "Username": "Kasia",
-        "Password": "12345678"
-      },
-      "Post": {
-        "Id": 1,
-        "Author": {
-          "Username": "Dominika",
-          "Password": "password1"
-        },
-        "Title": "Title of the Post",
-        "Body": "Body of the Post"
-      },
-      "IsPositive": true
     },
     {
-      "Id": 0,
-      "Author": {
-        "Username": "Dominika",
-        "Password": "password1"
-      },
-      "Post": {
-        "Id": 1,
-        "Author": {
-          "Username": "Dominika",
-          "Password": "password1"
-        },
-        "Title": "Title of the Post",
-        "Body": "Body of the Post"
-      },
-      "IsPositive": false
-    },
-    {
-      "Id": 0,
+      "Id": 9,
       "Author": {
         "Username": "Dominika",
         "Password": "password1"
@@ -322,6 +295,42 @@
         },
         "Title": "title ",
         "Body": "somesing "
+      },
+      "Body": "kkk"
+    }
+  ],
+  "Votes": [
+    {
+      "Id": 1,
+      "Author": {
+        "Username": "Dominika",
+        "Password": "password1"
+      },
+      "Post": {
+        "Id": 3,
+        "Author": {
+          "Username": "Magda",
+          "Password": "strinwrerg"
+        },
+        "Title": "Something ",
+        "Body": "bla bla bla bla "
+      },
+      "IsPositive": true
+    },
+    {
+      "Id": 2,
+      "Author": {
+        "Username": "Dominika",
+        "Password": "password1"
+      },
+      "Post": {
+        "Id": 1,
+        "Author": {
+          "Username": "Dominika",
+          "Password": "password1"
+        },
+        "Title": "Title of the Post",
+        "Body": "Body of the Post"
       },
       "IsPositive": true
     }

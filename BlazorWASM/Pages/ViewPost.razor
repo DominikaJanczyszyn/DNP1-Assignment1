@@ -90,14 +90,8 @@
             _comments = await commentService.GetAsync(id, null, null);
 
             ICollection<Vote> voteData = await voteService.GetAsync(id, null);
-            foreach (var item in voteData)
-            {
-                if (item.IsPositive == true)
-                {
-                    numberOfPosiviteVotes++;
-                }
-            }
-            numberOfNegativeVotes = voteData.Count(v => v.IsPositive == false);
+            numberOfPosiviteVotes = voteData.Count(v => v.IsPositive == true && v.Post.Id ==id);
+            numberOfNegativeVotes = voteData.Count(v => v.IsPositive == false && v.Post.Id ==id);
         }
         catch (Exception e)
         {

@@ -52,20 +52,6 @@ public class JwtAuthHttpClient : IAuthService
         OnAuthStateChanged.Invoke(principal);
         return Task.CompletedTask;
     }
-
-    public async Task RegisterAsync(User user)
-    {
-        string userAsJson = JsonSerializer.Serialize(user);
-        StringContent content = new(userAsJson, Encoding.UTF8, "application/json");
-        HttpResponseMessage response = await client.PostAsync("https://localhost:5094/Auth/login/register", content);
-        string responseContent = await response.Content.ReadAsStringAsync();
-
-        if (!response.IsSuccessStatusCode)
-        {
-            throw new Exception(responseContent);
-        }
-    }
-
     public Task<ClaimsPrincipal> GetAuthAsync()
     {
         ClaimsPrincipal principal = CreateClaimsPrincipal();

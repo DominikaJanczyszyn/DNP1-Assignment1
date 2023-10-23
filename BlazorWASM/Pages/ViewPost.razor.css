@@ -49,17 +49,20 @@ textarea{
 
 #LikeButton,
 #DisLikeButton {
-    margin-right: 50px; /* Increase the space between the Like and Dislike buttons */
+    margin-right: 30px; /* Increase the space between the Like and Dislike buttons */
+    padding: 0 20px
 }
 
 #postTitle {
     font-size: 18px; /* Adjust the title font size as needed */
     font-weight: bold;
     text-align: left;
+    padding: 0 20px;
 }
 
 .postBody {
     margin-top: 10px; /* Add some space between the title and body */
     text-align: left;
+    padding: 0 20px
 }
 
