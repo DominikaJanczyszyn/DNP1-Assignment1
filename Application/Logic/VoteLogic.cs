@@ -2,6 +2,7 @@
 using Application.LogicInterfaces;
 using Assignment1.DTOs;
 using Assignment1.Models;
+using Shared.DTOs;
 
 namespace Application.Logic;
 
@@ -34,17 +35,20 @@ public class VoteLogic : IVoteLogic
 
         Post? post = result.First();
 
-        Vote vote = new Vote(user, post, dto.isPositive);
+        Vote vote = new Vote(user, post, dto.IsPositive);
         Vote created = await _voteDao.CreateAsync(vote);
         return created;
     }
 
     public async Task UpdateAsync(UpdateVoteDto dto)
     {
-        SearchVoteParametersDto searchVoteParametersDto = new SearchVoteParametersDto(dto.Post.Id, dto.Author.Username);
+        SearchVoteParametersDto searchVoteParametersDto = new SearchVoteParametersDto(dto.PostId, dto.Username);
         IEnumerable<Vote> voteData = await _voteDao.GetAsync(searchVoteParametersDto);
-        Vote? existing = voteData.FirstOrDefault(v => (v.Post.Id == dto.Post.Id && v.Author.Username.Equals(dto.Author.Username)));
-
+        Vote? existing = voteData.FirstOrDefault(v => (v.Post.Id == dto.PostId && v.Author.Username.Equals(dto.Username)));
+        User? user = await _userDao.GetByUsernameAsync(dto.Username);
+        SearchPostParametersDto postParametersDto = new SearchPostParametersDto(dto.PostId, dto.Username, null, null);
+        IEnumerable<Post?> postData = await _postDao.GetAsync(postParametersDto);
+        Post post = postData.FirstOrDefault(p => p.Id == dto.PostId);
         if (existing == null)
         {
             throw new Exception("Vote not found!");
@@ -53,12 +57,12 @@ public class VoteLogic : IVoteLogic
         Vote updated;
         if ((dto.IsPositive == true))
         {
-            updated = new Vote(dto.Author, dto.Post, true);
+            updated = new Vote(user, post, true);
             await _voteDao.UpdateAsync(updated);
         }
         if (dto.IsPositive == false)
         {
-            updated = new Vote(dto.Author, dto.Post, false);
+            updated = new Vote(user,post, false);
             await _voteDao.UpdateAsync(updated);
         }
         if (dto.IsPositive == null)

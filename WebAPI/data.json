@@ -1,336 +1,216 @@
 {
   "Users": [
     {
-      "Username": "Dominika",
-      "Password": "password1"
+      "Username": "Alex",
+      "Password": "pass1234"
     },
     {
-      "Username": "Allan",
-      "Password": "password123"
-    },
-    {
-      "Username": "Magda",
-      "Password": "strinwrerg"
-    },
-    {
-      "Username": "Ewa",
-      "Password": "Pass1234"
-    },
-    {
-      "Username": "Kasia",
+      "Username": "Karolina",
       "Password": "12345678"
     },
     {
-      "Username": "Asia",
-      "Password": "12121212"
+      "Username": "Bob",
+      "Password": "1234pass"
+    },
+    {
+      "Username": "Natalia",
+      "Password": "89898989"
     }
   ],
   "Posts": [
     {
       "Id": 1,
       "Author": {
-        "Username": "Dominika",
-        "Password": "password1"
+        "Username": "Karolina",
+        "Password": "12345678"
       },
-      "Title": "Title of the Post",
-      "Body": "Body of the Post"
+      "Title": "Upcoming School Event",
+      "Body": "Hey everyone! Don\u0027t forget about the upcoming school event this Friday. We\u0027ll have food, games, and a live band. See you there!"
     },
     {
       "Id": 2,
       "Author": {
-        "Username": "Allan",
-        "Password": "password123"
+        "Username": "Karolina",
+        "Password": "12345678"
       },
-      "Title": "title ",
-      "Body": "somesing "
+      "Title": "Study Group for Math Exam",
+      "Body": "Looking for study partners for the upcoming math exam. Let\u0027s help each other ace this! DM me if you\u0027re interested."
     },
     {
       "Id": 3,
       "Author": {
-        "Username": "Magda",
-        "Password": "strinwrerg"
+        "Username": "Karolina",
+        "Password": "12345678"
       },
-      "Title": "Something ",
-      "Body": "bla bla bla bla "
+      "Title": "Book Recommendations",
+      "Body": "I\u0027m on the hunt for some good books to read during the break. Any recommendations? I love sci-fi and fantasy genres."
     },
     {
       "Id": 4,
       "Author": {
-        "Username": "Dominika",
-        "Password": "password1"
+        "Username": "Alex",
+        "Password": "pass1234"
       },
-      "Title": "Blblb",
-      "Body": "blablabla"
+      "Title": "Volunteer Opportunity",
+      "Body": "There\u0027s a volunteer opportunity at the local animal shelter this weekend. If you love animals and want to help out, let\u0027s go together!"
     },
     {
       "Id": 5,
       "Author": {
-        "Username": "Ewa",
-        "Password": "Pass1234"
+        "Username": "Alex",
+        "Password": "pass1234"
       },
-      "Title": "bbbb",
-      "Body": "aaa"
+      "Title": "Homework Help Request",
+      "Body": "Struggling with my history homework. Anyone here familiar with World War II? I could use some guidance."
     },
     {
       "Id": 6,
       "Author": {
-        "Username": "Ewa",
-        "Password": "Pass1234"
+        "Username": "Alex",
+        "Password": "pass1234"
       },
-      "Title": "ddddd",
-      "Body": "wwwww"
+      "Title": "Healthy Snack Ideas",
+      "Body": "Trying to eat healthier snacks. What are your favorite healthy snack ideas that are easy to make?"
     },
     {
       "Id": 7,
       "Author": {
-        "Username": "Ewa",
-        "Password": "Pass1234"
+        "Username": "Bob",
+        "Password": "1234pass"
       },
-      "Title": "ddddd",
-      "Body": "wwwww"
+      "Title": "New Club Announcement",
+      "Body": "Exciting news! We\u0027re starting a photography club at school. Interested in photography? Join us for our first meeting next week"
     },
     {
       "Id": 8,
       "Author": {
-        "Username": "Ewa",
-        "Password": "Pass1234"
+        "Username": "Bob",
+        "Password": "1234pass"
       },
-      "Title": "ddddd",
-      "Body": "wwwww"
+      "Title": "Local Community Cleanup",
+      "Body": "Join us this Saturday for a community cleanup event. Let\u0027s make our neighborhood cleaner and greener. Bring your friends!"
     },
     {
       "Id": 9,
       "Author": {
-        "Username": "Magda",
-        "Password": "strinwrerg"
+        "Username": "Bob",
+        "Password": "1234pass"
       },
-      "Title": "ggg",
-      "Body": "wewewew"
+      "Title": "Looking for a Carpool Buddy",
+      "Body": "I live near campus and am looking for a carpool buddy to share rides with. Let\u0027s save money and reduce our carbon footprint!"
     },
     {
       "Id": 10,
       "Author": {
-        "Username": "Magda",
-        "Password": "strinwrerg"
+        "Username": "Bob",
+        "Password": "1234pass"
       },
-      "Title": "kjkjk",
-      "Body": "ererre"
-    },
-    {
-      "Id": 11,
-      "Author": {
-        "Username": "Magda",
-        "Password": "strinwrerg"
-      },
-      "Title": "mm",
-      "Body": "sssssssssssssss"
-    },
-    {
-      "Id": 12,
-      "Author": {
-        "Username": "Dominika",
-        "Password": "password1"
-      },
-      "Title": "costam",
-      "Body": "costma"
-    },
-    {
-      "Id": 13,
-      "Author": {
-        "Username": "Dominika",
-        "Password": "password1"
-      },
-      "Title": "post",
-      "Body": "2333"
+      "Title": "Movie Night Suggestions",
+      "Body": "Planning a movie night with friends. Any movie recommendations that are suitable for a mixed group? Comedy or action preferred."
     }
   ],
   "Comments": [
     {
       "Id": 1,
       "Author": {
-        "Username": "Allan",
-        "Password": "password123"
+        "Username": "Bob",
+        "Password": "1234pass"
       },
       "Post": {
         "Id": 1,
         "Author": {
-          "Username": "Dominika",
-          "Password": "password1"
+          "Username": "Karolina",
+          "Password": "12345678"
         },
-        "Title": "Title of the Post",
-        "Body": "Body of the Post"
+        "Title": "Upcoming School Event",
+        "Body": "Hey everyone! Don\u0027t forget about the upcoming school event this Friday. We\u0027ll have food, games, and a live band. See you there!"
       },
-      "Body": "Comment"
+      "Body": "Great! I can not wait!"
     },
     {
       "Id": 2,
       "Author": {
-        "Username": "Dominika",
-        "Password": "password1"
-      },
-      "Post": {
-        "Id": 1,
-        "Author": {
-          "Username": "Dominika",
-          "Password": "password1"
-        },
-        "Title": "Title of the Post",
-        "Body": "Body of the Post"
-      },
-      "Body": "Comment 2 "
-    },
-    {
-      "Id": 3,
-      "Author": {
-        "Username": "Dominika",
-        "Password": "password1"
-      },
-      "Post": {
-        "Id": 1,
-        "Author": {
-          "Username": "Dominika",
-          "Password": "password1"
-        },
-        "Title": "Title of the Post",
-        "Body": "Body of the Post"
-      },
-      "Body": "kk"
-    },
-    {
-      "Id": 4,
-      "Author": {
-        "Username": "Dominika",
-        "Password": "password1"
-      },
-      "Post": {
-        "Id": 1,
-        "Author": {
-          "Username": "Dominika",
-          "Password": "password1"
-        },
-        "Title": "Title of the Post",
-        "Body": "Body of the Post"
-      },
-      "Body": "ddd"
-    },
-    {
-      "Id": 5,
-      "Author": {
-        "Username": "Kasia",
-        "Password": "12345678"
-      },
-      "Post": {
-        "Id": 1,
-        "Author": {
-          "Username": "Dominika",
-          "Password": "password1"
-        },
-        "Title": "Title of the Post",
-        "Body": "Body of the Post"
-      },
-      "Body": "cooo"
-    },
-    {
-      "Id": 6,
-      "Author": {
-        "Username": "Dominika",
-        "Password": "password1"
-      },
-      "Post": {
-        "Id": 1,
-        "Author": {
-          "Username": "Dominika",
-          "Password": "password1"
-        },
-        "Title": "Title of the Post",
-        "Body": "Body of the Post"
-      },
-      "Body": "kkkk"
-    },
-    {
-      "Id": 7,
-      "Author": {
-        "Username": "Dominika",
-        "Password": "password1"
-      },
-      "Post": {
-        "Id": 1,
-        "Author": {
-          "Username": "Dominika",
-          "Password": "password1"
-        },
-        "Title": "Title of the Post",
-        "Body": "Body of the Post"
-      },
-      "Body": "ok"
-    },
-    {
-      "Id": 8,
-      "Author": {
-        "Username": "Dominika",
-        "Password": "password1"
+        "Username": "Bob",
+        "Password": "1234pass"
       },
       "Post": {
         "Id": 2,
         "Author": {
-          "Username": "Allan",
-          "Password": "password123"
+          "Username": "Karolina",
+          "Password": "12345678"
         },
-        "Title": "title ",
-        "Body": "somesing "
+        "Title": "Study Group for Math Exam",
+        "Body": "Looking for study partners for the upcoming math exam. Let\u0027s help each other ace this! DM me if you\u0027re interested."
       },
-      "Body": "ok"
-    },
-    {
-      "Id": 9,
-      "Author": {
-        "Username": "Dominika",
-        "Password": "password1"
-      },
-      "Post": {
-        "Id": 2,
-        "Author": {
-          "Username": "Allan",
-          "Password": "password123"
-        },
-        "Title": "title ",
-        "Body": "somesing "
-      },
-      "Body": "kkk"
+      "Body": "I can help you!"
     }
   ],
   "Votes": [
     {
       "Id": 1,
       "Author": {
-        "Username": "Dominika",
-        "Password": "password1"
+        "Username": "Bob",
+        "Password": "1234pass"
       },
       "Post": {
-        "Id": 3,
+        "Id": 1,
         "Author": {
-          "Username": "Magda",
-          "Password": "strinwrerg"
+          "Username": "Karolina",
+          "Password": "12345678"
         },
-        "Title": "Something ",
-        "Body": "bla bla bla bla "
+        "Title": "Upcoming School Event",
+        "Body": "Hey everyone! Don\u0027t forget about the upcoming school event this Friday. We\u0027ll have food, games, and a live band. See you there!"
       },
       "IsPositive": true
     },
     {
       "Id": 2,
       "Author": {
-        "Username": "Dominika",
-        "Password": "password1"
+        "Username": "Bob",
+        "Password": "1234pass"
+      },
+      "Post": {
+        "Id": 2,
+        "Author": {
+          "Username": "Karolina",
+          "Password": "12345678"
+        },
+        "Title": "Study Group for Math Exam",
+        "Body": "Looking for study partners for the upcoming math exam. Let\u0027s help each other ace this! DM me if you\u0027re interested."
+      },
+      "IsPositive": true
+    },
+    {
+      "Id": 3,
+      "Author": {
+        "Username": "Natalia",
+        "Password": "89898989"
       },
       "Post": {
         "Id": 1,
         "Author": {
-          "Username": "Dominika",
-          "Password": "password1"
+          "Username": "Karolina",
+          "Password": "12345678"
         },
-        "Title": "Title of the Post",
-        "Body": "Body of the Post"
+        "Title": "Upcoming School Event",
+        "Body": "Hey everyone! Don\u0027t forget about the upcoming school event this Friday. We\u0027ll have food, games, and a live band. See you there!"
+      },
+      "IsPositive": true
+    },
+    {
+      "Id": 4,
+      "Author": {
+        "Username": "Karolina",
+        "Password": "12345678"
+      },
+      "Post": {
+        "Id": 6,
+        "Author": {
+          "Username": "Alex",
+          "Password": "pass1234"
+        },
+        "Title": "Healthy Snack Ideas",
+        "Body": "Trying to eat healthier snacks. What are your favorite healthy snack ideas that are easy to make?"
       },
       "IsPositive": true
     }

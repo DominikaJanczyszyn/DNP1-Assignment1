@@ -20,7 +20,6 @@
         </div>
 </div>
 @code {
-    private IEnumerable<Post>? _posts;
     private string _postTitle = "";
     private string _postBody = "";
     private string _msg = "";
@@ -39,16 +38,7 @@
         
         if (!isLoggedIn) return;
         userName = user.Identity!.Name!;
-        try
-        {
-            _posts = await PostService.GetAsync(null, null, null, null);
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine(e);
-            _msg = e.Message;
-        }
-        
+
     }
 
     private async Task Create()
@@ -64,7 +54,6 @@
             _msg = "Body cannot be empty!";
             return;
         }
-
         try
         {
             PostCreationDto dto = new(userName, _postTitle, _postBody);

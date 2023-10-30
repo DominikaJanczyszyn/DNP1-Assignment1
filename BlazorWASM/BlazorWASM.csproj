@@ -31,6 +31,9 @@
 
     <ItemGroup>
       <None Remove="Pages\UIComponents\**" />
+      <None Remove="Pages\DisLikeButton.razor.css" />
+      <None Remove="Pages\LikeButton.razor.css" />
+      <None Remove="Pages\Index.razor.css" />
     </ItemGroup>
 
 </Project>

@@ -1,32 +1,35 @@
 .acceptbtn[b-ceegisofnu] {
     background-color: #318fef;
-    width:100%;
+    width: 100%;
     resize: vertical;
-    padding:5px;
-    border-radius:15px;
-    border:0;
-    box-shadow:4px 4px 10px rgba(0,0,0,0.06);
-    height:50px;
+    padding: 5px;
+    border-radius: 15px;
+    border: 0;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.06);
+    height: 50px;
 }
 
 .button-row[b-ceegisofnu] {
     margin-top: 5px;
 }
-textarea[b-ceegisofnu]{
-    width:100%;
+textarea[b-ceegisofnu] {
+    width: 100%;
     resize: vertical;
-    padding:5px;
-    border-radius:15px;
+    padding: 5px;
+    border-radius: 15px;
     border: 3px solid #ccc;
-    box-shadow:4px 4px 10px rgba(0,0,0,0.06);
-    height:150px;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.06);
+    height: 150px;
 }
-input[b-ceegisofnu]{
-    width:100%;
+input[b-ceegisofnu] {
+    width: 100%;
     resize: vertical;
-    padding:5px;
-    border-radius:15px;
+    padding: 5px;
+    border-radius: 15px;
     border: 3px solid #ccc;
-    box-shadow:4px 4px 10px rgba(0,0,0,0.06);
-    height:50px;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.06);
+    height: 50px;
+}
+.card[b-ceegisofnu] {
+    width: 100%;
 }

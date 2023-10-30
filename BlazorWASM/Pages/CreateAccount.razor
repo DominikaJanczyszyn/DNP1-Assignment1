@@ -2,7 +2,6 @@
 @using HttpClients.ClientInterfaces
 @using Assignment1.DTOs
 @inject IUserService userService
-
 @inject NavigationManager navMgr
 <div class="card">
     <h3>Create an Account</h3>
@@ -71,7 +70,7 @@
         catch (Exception e)
         {
             Console.WriteLine(e);
-            errorLabel = $"Error: {e.Message}";
+            errorLabel = $"{e.Message}";
         }
         
     }

@@ -12,7 +12,7 @@
 {
     <label>Loading...</label>
 }
-<div class="card">
+<div class="card" style="width: 100%">
     <div class="post-header">
         <div class="user-info">
             <img class="avatar" src="img/avatar.png" />
@@ -35,7 +35,7 @@
 <h4 style="font-weight: bold">Comments :</h4>
  @foreach (var item in _comments)
     {
-        <div class="card">
+        <div class="card" style="width: 100%">
             <div class="post-header">
                 <div class="user-info">
                     <img class="avatar" src="img/avatar.png"/>
@@ -45,7 +45,7 @@
             <p class="postBody"> @item.Body</p>
         </div>
     }
-<div class="card">
+<div class="card" style="width: 100%">
     <div id="commentLine">
         <textarea placeholder="Write a comment" @bind="commentBody"></textarea>
         <button id="commentbtn" @onclick="Create" class="acceptbtn">Comment</button>

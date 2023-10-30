@@ -4,12 +4,12 @@ public class VoteCreationDto
 {
     public string AuthorUsername { get; }
     public int PostId{ get; }
-    public bool isPositive { get; }
+    public bool IsPositive { get; }
 
     public VoteCreationDto(string authorUsername, int postId, bool isPositive)
     {
         AuthorUsername = authorUsername;
         PostId = postId;
-        this.isPositive = isPositive;
+        IsPositive = isPositive;
     }
 }

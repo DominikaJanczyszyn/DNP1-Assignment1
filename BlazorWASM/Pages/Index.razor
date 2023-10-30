@@ -16,7 +16,7 @@
     {
         @foreach (var item in _posts)
         {
-            <div class="card" @onclick="@(() => NavMgr.NavigateTo($"/ViewPost/{item.Id}"))">
+            <div class="card" style="width: 100%" @onclick="@(() => NavMgr.NavigateTo($"/ViewPost/{item.Id}"))">
                 <div class="post-header">
                     <div class="user-info">
                         <img class="avatar" src="img/avatar.png" />

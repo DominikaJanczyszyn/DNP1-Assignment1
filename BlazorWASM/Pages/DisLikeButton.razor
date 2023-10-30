@@ -75,7 +75,7 @@ else
         else
         {
             
-            UpdateVoteDto dto = new UpdateVoteDto(User, Post, false);
+            UpdateVoteDto dto = new UpdateVoteDto(userName, postId, false);
             await VoteService.UpdateAsync(dto);
         }
         NavMgr.NavigateTo("/");

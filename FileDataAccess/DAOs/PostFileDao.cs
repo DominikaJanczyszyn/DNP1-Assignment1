@@ -41,13 +41,13 @@ public class PostFileDao : IPostDao
                 {
                     result = _context.Posts.Where(p => p.Author.Username.Equals(searchParameters.Username, StringComparison.OrdinalIgnoreCase));
                 }
-                if (!string.IsNullOrEmpty(searchParameters.TitleContains))
+                if (!string.IsNullOrEmpty(searchParameters.Title))
                 {
-                    result = _context.Posts.Where(p => p.Title.Contains(searchParameters.TitleContains, StringComparison.OrdinalIgnoreCase));
+                    result = _context.Posts.Where(p => p.Title.Contains(searchParameters.Title, StringComparison.OrdinalIgnoreCase));
                 }
-                if (!string.IsNullOrEmpty(searchParameters.BodyContains))
+                if (!string.IsNullOrEmpty(searchParameters.Body))
                 {
-                    result = _context.Posts.Where(p => p.Body.Contains(searchParameters.BodyContains, StringComparison.OrdinalIgnoreCase));
+                    result = _context.Posts.Where(p => p.Body.Contains(searchParameters.Body, StringComparison.OrdinalIgnoreCase));
                 }
         
                 return Task.FromResult(result);
