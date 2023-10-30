@@ -1,0 +1,95 @@
+﻿@using Assignment1.Models
+@using System.Security.Claims
+@using Assignment1.DTOs
+@using HttpClients.ClientInterfaces
+@inject IVoteService VoteService;
+@inject IPostService PostService;
+@inject IUserService UserService;
+@inject NavigationManager NavMgr
+@attribute [Authorize]
+@if (Vote != null)
+{
+   @if (Vote.IsPositive == true)
+   {
+     <img class="icon" src="img/likeAdded.png" @onclick="UndoLike"/>  
+   }
+   @if (Vote.IsPositive == false || Vote.IsPositive == null)
+   {
+       <img class="icon" src="img/like.png" @onclick="Like"/>  
+   } 
+}
+else
+{
+    <img class="icon" src="img/like.png" @onclick="Like"/>  
+}
+
+@code {
+    [Parameter]
+    public int postId { get; set; }
+    
+    [CascadingParameter]
+    public Task<AuthenticationState> AuthState { get; set; } = null!;
+    private string? userName;
+    private bool isLoggedIn;
+
+    private Vote Vote;
+    private User User;
+    private Post? Post;
+    
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            AuthenticationState authState = await AuthState;
+            ClaimsPrincipal user = authState.User;
+            isLoggedIn = user.Identity != null;
+
+            if (!isLoggedIn) return;
+            userName = user.Identity!.Name!;
+
+            ICollection<Vote> voteData = await VoteService.GetAsync(postId, userName);
+            Vote = voteData.First(v => (v.Post.Id == postId && v.Author.Username.Equals(userName)));
+
+            IEnumerable<User> userData = await UserService.GetUsers(userName);
+            User = userData.First(u => u.Username.Equals(userName));
+
+            ICollection<Post?> postData = await PostService.GetAsync(postId, null, null, null);
+            Post = postData.First(p => p.Id == postId);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+        }
+
+
+
+    }
+  /////zmienic w jedna metode  
+    private async void Like()
+    {
+        if (Vote == null)
+        {
+            VoteCreationDto dto = new VoteCreationDto(userName, postId, true);
+            await VoteService.CreateAsync(dto);
+        }
+        else
+        {
+            
+            UpdateVoteDto dto = new UpdateVoteDto(userName, postId, true);
+            await VoteService.UpdateAsync(dto);
+        }
+        NavMgr.NavigateTo("/");
+        NavMgr.NavigateTo($"/ViewPost/{postId}");
+        
+        
+    }
+
+    private async void UndoLike()
+    {
+        await VoteService.DeleteAsync(Vote.Id);
+        NavMgr.NavigateTo("/");
+        NavMgr.NavigateTo($"/ViewPost/{postId}");
+      
+    }
+
+}
