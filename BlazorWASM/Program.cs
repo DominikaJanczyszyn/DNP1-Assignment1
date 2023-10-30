@@ -17,7 +17,7 @@ builder.Services.AddScoped<AuthenticationStateProvider, CustomAuthProvider>();
 builder.Services.AddScoped<ICommentService, CommentHttpClient>();
 builder.Services.AddScoped<IVoteService, VoteHttpClient>();
 AuthorizationPolicies.AddPolicies(builder.Services);
-builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https://localhost:5094") });
+builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https://localhost:7236") });
 
 
 await builder.Build().RunAsync();

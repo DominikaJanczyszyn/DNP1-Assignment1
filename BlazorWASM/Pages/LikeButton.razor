@@ -9,7 +9,7 @@
 @attribute [Authorize]
 @if (Vote != null)
 {
-   @if (Vote.IsPositive == true)
+   @if (Vote.IsPositive)
    {
      <img class="icon" src="img/likeAdded.png" @onclick="UndoLike"/>  
    }
