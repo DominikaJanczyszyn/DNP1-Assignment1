@@ -19,6 +19,10 @@
     {
       "Username": "Karol",
       "Password": "87654321"
+    },
+    {
+      "Username": "Dominika",
+      "Password": "12341234"
     }
   ],
   "Posts": [
@@ -111,6 +115,15 @@
       },
       "Title": "Movie Night Suggestions",
       "Body": "Planning a movie night with friends. Any movie recommendations that are suitable for a mixed group? Comedy or action preferred."
+    },
+    {
+      "Id": 11,
+      "Author": {
+        "Username": "Dominika",
+        "Password": "12341234"
+      },
+      "Title": "post1",
+      "Body": "post1"
     }
   ],
   "Comments": [
@@ -147,6 +160,40 @@
         "Body": "Looking for study partners for the upcoming math exam. Let\u0027s help each other ace this! DM me if you\u0027re interested."
       },
       "Body": "I can help you!"
+    },
+    {
+      "Id": 3,
+      "Author": {
+        "Username": "Dominika",
+        "Password": "12341234"
+      },
+      "Post": {
+        "Id": 1,
+        "Author": {
+          "Username": "Karolina",
+          "Password": "12345678"
+        },
+        "Title": "Upcoming School Event",
+        "Body": "Hey everyone! Don\u0027t forget about the upcoming school event this Friday. We\u0027ll have food, games, and a live band. See you there!"
+      },
+      "Body": "comment"
+    },
+    {
+      "Id": 4,
+      "Author": {
+        "Username": "Dominika",
+        "Password": "12341234"
+      },
+      "Post": {
+        "Id": 11,
+        "Author": {
+          "Username": "Dominika",
+          "Password": "12341234"
+        },
+        "Title": "post1",
+        "Body": "post1"
+      },
+      "Body": "comment"
     }
   ],
   "Votes": [
@@ -198,6 +245,40 @@
         },
         "Title": "Healthy Snack Ideas",
         "Body": "Trying to eat healthier snacks. What are your favorite healthy snack ideas that are easy to make?"
+      },
+      "IsPositive": true
+    },
+    {
+      "Id": 5,
+      "Author": {
+        "Username": "Karolina",
+        "Password": "12345678"
+      },
+      "Post": {
+        "Id": 1,
+        "Author": {
+          "Username": "Karolina",
+          "Password": "12345678"
+        },
+        "Title": "Upcoming School Event",
+        "Body": "Hey everyone! Don\u0027t forget about the upcoming school event this Friday. We\u0027ll have food, games, and a live band. See you there!"
+      },
+      "IsPositive": true
+    },
+    {
+      "Id": 6,
+      "Author": {
+        "Username": "Karolina",
+        "Password": "12345678"
+      },
+      "Post": {
+        "Id": 3,
+        "Author": {
+          "Username": "Karolina",
+          "Password": "12345678"
+        },
+        "Title": "Book Recommendations",
+        "Body": "I\u0027m on the hunt for some good books to read during the break. Any recommendations? I love sci-fi and fantasy genres."
       },
       "IsPositive": true
     }
