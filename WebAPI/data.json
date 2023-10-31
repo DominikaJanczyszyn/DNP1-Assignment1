@@ -185,23 +185,6 @@
       "IsPositive": true
     },
     {
-      "Id": 3,
-      "Author": {
-        "Username": "Natalia",
-        "Password": "89898989"
-      },
-      "Post": {
-        "Id": 1,
-        "Author": {
-          "Username": "Karolina",
-          "Password": "12345678"
-        },
-        "Title": "Upcoming School Event",
-        "Body": "Hey everyone! Don\u0027t forget about the upcoming school event this Friday. We\u0027ll have food, games, and a live band. See you there!"
-      },
-      "IsPositive": true
-    },
-    {
       "Id": 4,
       "Author": {
         "Username": "Karolina",
@@ -217,23 +200,6 @@
         "Body": "Trying to eat healthier snacks. What are your favorite healthy snack ideas that are easy to make?"
       },
       "IsPositive": true
-    },
-    {
-      "Id": 0,
-      "Author": {
-        "Username": "Karolina",
-        "Password": "12345678"
-      },
-      "Post": {
-        "Id": 1,
-        "Author": {
-          "Username": "Karolina",
-          "Password": "12345678"
-        },
-        "Title": "Upcoming School Event",
-        "Body": "Hey everyone! Don\u0027t forget about the upcoming school event this Friday. We\u0027ll have food, games, and a live band. See you there!"
-      },
-      "IsPositive": false
     }
   ]
 }

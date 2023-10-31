@@ -12,7 +12,7 @@ public class CommentHttpClient : ICommentService
 
     public CommentHttpClient(HttpClient client)
     {
-        this._client = client;
+        _client = client;
     }
     public async Task CreateAsync(CommentCreationDto dto)
     {

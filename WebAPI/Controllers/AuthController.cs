@@ -14,20 +14,20 @@ namespace WebAPI.Controllers;
 [Route("[controller]")]
 public class AuthController : ControllerBase
 {
-    private readonly IConfiguration config;
-    private readonly IUserLogic userLogic;
+    private readonly IConfiguration _config;
+    private readonly IUserLogic _userLogic;
 
     public AuthController(IConfiguration config, IUserLogic userLogic)
     {
-        this.config = config;
-        this.userLogic = userLogic;
+        _config = config;
+        _userLogic = userLogic;
     }
     [HttpPost, Route("login")]
     public async Task<ActionResult> Login([FromBody] UserLoginDto userLoginDto)
     {
         try
         {
-            User? user = await userLogic.GetByUsernameAsync(userLoginDto.Username);
+            User? user = await _userLogic.GetByUsernameAsync(userLoginDto.Username);
             if(user.Password.Equals(userLoginDto.Password))
             {
                string token = GenerateJwt(user); 
@@ -48,7 +48,7 @@ public class AuthController : ControllerBase
     {
         var claims = new[]
         {
-            new Claim(JwtRegisteredClaimNames.Sub, config["Jwt:Subject"]),
+            new Claim(JwtRegisteredClaimNames.Sub, _config["Jwt:Subject"]),
             new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
             new Claim(JwtRegisteredClaimNames.Iat, DateTime.UtcNow.ToString()),
             new Claim(ClaimTypes.Name, user.Username),
@@ -60,14 +60,14 @@ public class AuthController : ControllerBase
     {
         List<Claim> claims = GenerateClaims(user);
     
-        SymmetricSecurityKey key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config["Jwt:Key"]));
+        SymmetricSecurityKey key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:Key"]));
         SigningCredentials signIn = new SigningCredentials(key, SecurityAlgorithms.HmacSha512);
     
         JwtHeader header = new JwtHeader(signIn);
     
         JwtPayload payload = new JwtPayload(
-            config["Jwt:Issuer"],
-            config["Jwt:Audience"],
+            _config["Jwt:Issuer"],
+            _config["Jwt:Audience"],
             claims, 
             null,
             DateTime.UtcNow.AddMinutes(60));

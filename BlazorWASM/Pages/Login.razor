@@ -1,22 +1,22 @@
 ﻿@page "/Login"
 @using HttpClients.ClientInterfaces
-@inject IAuthService authService
-@inject NavigationManager navMgr
+@inject IAuthService AuthService
+@inject NavigationManager NavMgr
 <AuthorizeView>
     <NotAuthorized>
         <div class="card">
             <h3>Please login</h3>
             <div class="field">
-                <input placeholder="Username" type="text" @bind="userName"/>
+                <input placeholder="Username" type="text" @bind="_userName"/>
             </div>
             <div class="field">
-                <input placeholder="Password" type="password" @bind="password"/>
+                <input placeholder="Password" type="password" @bind="_password"/>
             </div>
-            @if (!string.IsNullOrEmpty(errorLabel))
+            @if (!string.IsNullOrEmpty(_errorLabel))
             {
                 <div class="field">
                     <label style="color: red">
-                        @errorLabel
+                        @_errorLabel
                     </label>
                 </div>
             }
@@ -30,32 +30,32 @@
     </NotAuthorized>
     <Authorized>
         <div class="card">
-            <h3>Hello, @context.User.Identity.Name</h3>
+            <h3>Hello, @context.User.Identity?.Name</h3>
         </div>
     </Authorized>
 </AuthorizeView>
 @code {
-    private string userName;
-    private string password;
-    private string errorLabel;
+    private string _userName = "";
+    private string _password ="";
+    private string _errorLabel = "";
 
     private async Task LoginAsync()
     {
-        errorLabel = "";
+        _errorLabel = "";
         try
         {
-            await authService.LoginAsync(userName, password);
-            navMgr.NavigateTo("/");
+            await AuthService.LoginAsync(_userName, _password);
+            NavMgr.NavigateTo("/");
         }
         catch (Exception e)
         {
             Console.WriteLine(e);
-            errorLabel = $"Error: {e.Message}";
+            _errorLabel = $"Error: {e.Message}";
         }
     }
 
     private void OnCrateAccountClick()
     {
-        navMgr.NavigateTo("/CreateAccount");
+        NavMgr.NavigateTo("/CreateAccount");
     }
 }

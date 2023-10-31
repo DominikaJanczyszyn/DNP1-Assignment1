@@ -2,7 +2,6 @@
 @using HttpClients.ClientInterfaces
 @using Assignment1.DTOs
 @using Assignment1.Models
-@inject IUserService UserService
 @inject IPostService PostService
 @inject NavigationManager NavMgr
 @attribute [Authorize]
@@ -15,9 +14,10 @@
         <div class="form-group field">
             <textarea placeholder="Write a post." @bind="_postBody"></textarea>
         </div>
-        <div class="button-row">
-            <button @onclick="Create" class="acceptbtn">Post</button>
-        </div>
+    <div class="button-row">
+        <button @onclick="Create" class="acceptbtn">Post</button>
+    </div>
+    <div>@_msg</div>
 </div>
 @code {
     private string _postTitle = "";
@@ -26,18 +26,18 @@
     
     [CascadingParameter]
     public Task<AuthenticationState> AuthState { get; set; } = null!;
-    private string? userName;
-    private bool isLoggedIn;
+    private string? _userName;
+    private bool _isLoggedIn;
 
     protected override async Task OnInitializedAsync()
     {
         _msg = "";
         AuthenticationState authState = await AuthState;
         ClaimsPrincipal user = authState.User;
-        isLoggedIn = user.Identity != null;
+        _isLoggedIn = user.Identity != null;
         
-        if (!isLoggedIn) return;
-        userName = user.Identity!.Name!;
+        if (!_isLoggedIn) return;
+        _userName = user.Identity!.Name!;
 
     }
 
@@ -56,7 +56,7 @@
         }
         try
         {
-            PostCreationDto dto = new(userName, _postTitle, _postBody);
+            PostCreationDto dto = new(_userName, _postTitle, _postBody);
             await PostService.CreateAsync(dto);
             _postTitle = "";
             _postBody = "";

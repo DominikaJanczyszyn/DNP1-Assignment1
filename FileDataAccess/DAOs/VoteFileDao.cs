@@ -31,9 +31,9 @@ public class VoteFileDao : IVoteDao
 
     public Task UpdateAsync(Vote vote)
     {
-        
-        Vote? result = _context.Votes.FirstOrDefault(v =>
-            (v.Post.Id == vote.Post.Id && v.Author.Username == vote.Author.Username));
+        Console.WriteLine(vote.Author.Username + " " + vote.Post.Title);
+        Vote? result = _context.Votes.FirstOrDefault(v => (v.Post.Id == vote.Post.Id && v.Author.Username == vote.Author.Username));
+   
         if (result == null)
         {
             throw new Exception("Vote not found!");

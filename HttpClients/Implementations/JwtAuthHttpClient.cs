@@ -9,13 +9,13 @@ namespace HttpClients.Implementations;
 
 public class JwtAuthHttpClient : IAuthService
 {
-    private readonly HttpClient client;
+    private readonly HttpClient _client;
     public static string? Jwt { get; private set; } = "";
     public Action<ClaimsPrincipal> OnAuthStateChanged { get; set; } = null!;
 
     public JwtAuthHttpClient(HttpClient client)
     {
-        this.client = client;
+       _client = client;
     }
 
     public async Task LoginAsync(string username, string password)
@@ -29,7 +29,7 @@ public class JwtAuthHttpClient : IAuthService
         string userAsJson = JsonSerializer.Serialize(userLoginDto);
         StringContent content = new(userAsJson, Encoding.UTF8, "application/json");
 
-        HttpResponseMessage response = await client.PostAsync("https://localhost:7236/Auth/login", content);
+        HttpResponseMessage response = await _client.PostAsync("https://localhost:7236/Auth/login", content);
         string responseContent = await response.Content.ReadAsStringAsync();
 
         if (!response.IsSuccessStatusCode)

@@ -6,40 +6,40 @@ namespace FileDataAccess.DAOs;
 
 public class UserFileDao : IUserDao
 {
-    private readonly FileContext Context;
+    private readonly FileContext _context;
 
     public UserFileDao(FileContext context)
     {
-        Context = context;
+        _context = context;
     }
     public Task<User> CreateAsync(User user)
     {
-        if (Context.Users.Any())
+        if (_context.Users.Any())
         {
-            if (Context.Users.FirstOrDefault(u => u.Username.Equals(user.Username, StringComparison.OrdinalIgnoreCase)) != null)
+            if (_context.Users.FirstOrDefault(u => u.Username.Equals(user.Username, StringComparison.OrdinalIgnoreCase)) != null)
             {
                 throw new Exception("User name is already taken!");
             }
         }
-        Context.Users.Add(user);
-        Context.SaveChanges();
+        _context.Users.Add(user);
+        _context.SaveChanges();
 
         return Task.FromResult(user);
     }
 
     public Task<User?> GetByUsernameAsync(string username)
     {
-        User? existing = Context.Users.FirstOrDefault(u => u.Username.Equals(username, StringComparison.OrdinalIgnoreCase));
+        User? existing = _context.Users.FirstOrDefault(u => u.Username.Equals(username, StringComparison.OrdinalIgnoreCase));
         return Task.FromResult(existing);
         
     }
 
     public Task<IEnumerable<User>> GetAsync(SearchUserParametersDto searchParameters)
     {
-        IEnumerable<User> users = Context.Users.AsEnumerable();
+        IEnumerable<User> users = _context.Users.AsEnumerable();
         if (searchParameters.Username != null)
         {
-            users = Context.Users.Where(u => u.Username.Contains(searchParameters.Username, StringComparison.OrdinalIgnoreCase));
+            users = _context.Users.Where(u => u.Username.Contains(searchParameters.Username, StringComparison.OrdinalIgnoreCase));
         }
 
         return Task.FromResult(users);

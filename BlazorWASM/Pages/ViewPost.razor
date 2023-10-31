@@ -3,32 +3,33 @@
 @using Assignment1.Models
 @using Assignment1.DTOs
 @using System.Security.Claims
-@inject IPostService postService;
-@inject ICommentService commentService;
-@inject IVoteService voteService;
+@inject IPostService PostService;
+@inject ICommentService CommentService;
+@inject IVoteService VoteService;
 @inject NavigationManager NavMgr
 
-@if (post == null)
+
+@if (_post == null)
 {
     <label>Loading...</label>
 }
 <div class="card" style="width: 100%">
     <div class="post-header">
         <div class="user-info">
-            <img class="avatar" src="img/avatar.png" />
-            <h6 class="username">@post.Author.Username</h6>
+            <img class="avatar" src="img/avatar.png"/>
+            <h6 class="username">@_post.Author.Username</h6>
         </div>
     </div>
-    <h4 id="postTitle">@post.Title</h4>
-    <p class="postBody">@post.Body</p>
+    <h4 id="postTitle">@_post.Title</h4>
+    <p class="postBody">@_post.Body</p>
     <div class="action-buttons">
         <div id="LikeButton">
-            <LikeButton postId="@id"/> 
-            <div>@numberOfPosiviteVotes</div>
+            <LikeButton PostId="@Id"/> 
+            <div>@_numberOfPositiveVotes</div>
         </div>
         <div id="DisLikeButton">
-            <DisLikeButton postId="@id"/>
-            <div>@numberOfNegativeVotes</div>
+            <DisLikeButton PostId="@Id"/>
+            <div>@_numberOfNegativeVotes</div>
         </div>
     </div>
 </div>
@@ -47,7 +48,7 @@
     }
 <div class="card" style="width: 100%">
     <div id="commentLine">
-        <textarea placeholder="Write a comment" @bind="commentBody"></textarea>
+        <textarea placeholder="Write a comment" @bind="_commentBody"></textarea>
         <button id="commentbtn" @onclick="Create" class="acceptbtn">Comment</button>
     </div>
 </div>
@@ -56,42 +57,40 @@
 @code {
     
     [Parameter]
-    public int id { get; set; }
+    public int Id { get; set; }
     
     
-    private Post? post;
+    private Post? _post;
     private IEnumerable<Comment>? _comments;
-    private string commentBody = "";
+    private string _commentBody = "";
     private string _msg = "";
     
     [CascadingParameter]
     public Task<AuthenticationState> AuthState { get; set; } = null!;
-    private string? userName;
-    private bool isLoggedIn;
+    private string _userName;
+    private bool _isLoggedIn;
 
-    private Vote vote;
-
-    private int numberOfPosiviteVotes = 0;
-    private int numberOfNegativeVotes = 0;
+    private int _numberOfPositiveVotes = 0;
+    private int _numberOfNegativeVotes = 0;
    
     protected override async Task OnInitializedAsync()
     {
         _msg = "";
         AuthenticationState authState = await AuthState;
         ClaimsPrincipal user = authState.User;
-        isLoggedIn = user.Identity != null;
+        _isLoggedIn = user.Identity != null;
         
-        if (!isLoggedIn) return;
-        userName = user.Identity!.Name!;
+        if (!_isLoggedIn) return;
+        _userName = user.Identity!.Name!;
         try
         {
-            ICollection<Post?> postData = await postService.GetAsync(id, null, null, null);
-            post = postData.FirstOrDefault(p => p.Id == id);
-            _comments = await commentService.GetAsync(id, null, null);
+            ICollection<Post?> postData = await PostService.GetAsync(Id, null, null, null);
+            _post = postData.FirstOrDefault(p => p.Id == Id);
+            _comments = await CommentService.GetAsync(Id, null, null);
 
-            ICollection<Vote> voteData = await voteService.GetAsync(id, null);
-            numberOfPosiviteVotes = voteData.Count(v => v.IsPositive == true && v.Post.Id ==id);
-            numberOfNegativeVotes = voteData.Count(v => v.IsPositive == false && v.Post.Id ==id);
+            ICollection<Vote> voteData = await VoteService.GetAsync(Id, null);
+            _numberOfPositiveVotes = voteData.Count(v => v.IsPositive == true && v.Post.Id ==Id);
+            _numberOfNegativeVotes = voteData.Count(v => v.IsPositive == false && v.Post.Id ==Id);
         }
         catch (Exception e)
         {
@@ -103,18 +102,18 @@
 
     private async Task Create()
     {
-        if (string.IsNullOrEmpty(commentBody))
+        if (string.IsNullOrEmpty(_commentBody))
         {
             _msg = "Comment cannot be empty!";
             return;
         }
         try
         {
-            CommentCreationDto dto = new CommentCreationDto(userName, id, commentBody);
-            await commentService.CreateAsync(dto);
-            commentBody = "";
+            CommentCreationDto dto = new CommentCreationDto(_userName, Id, _commentBody);
+            await CommentService.CreateAsync(dto);
+            _commentBody = "";
             NavMgr.NavigateTo("/");
-            NavMgr.NavigateTo($"/ViewPost/{id}");
+            NavMgr.NavigateTo($"/ViewPost/{Id}");
             
 
         }

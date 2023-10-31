@@ -1,24 +1,24 @@
 ﻿@page "/CreateAccount"
 @using HttpClients.ClientInterfaces
 @using Assignment1.DTOs
-@inject IUserService userService
-@inject NavigationManager navMgr
+@inject IUserService UserService
+@inject NavigationManager NavMgr
 <div class="card">
     <h3>Create an Account</h3>
     <div class="field">
         <input placeholder="Username" type="text" @bind="_userName"/>
     </div>
     <div class="field">
-        <input placeholder="Password" type="password" @bind="password"/>
+        <input placeholder="Password" type="password" @bind="_password"/>
     </div> 
     <div class="field">
-        <input placeholder="Repeat Password" type="password" @bind="repeatPassword"/>
+        <input placeholder="Repeat Password" type="password" @bind="_repeatPassword"/>
     </div>
-    @if (!string.IsNullOrEmpty(errorLabel))
+    @if (!string.IsNullOrEmpty(_errorLabel))
     {
         <div class="field">
             <label style="color: red">
-                @errorLabel
+                @_errorLabel
             </label>
         </div>
     }
@@ -27,56 +27,56 @@
     </div>
 </div>
 
-<Modal ShowModal="showModal">
+<Modal ShowModal="_showModal">
     <p>You have successfully created an Account! You should log in now!</p>
     <button @onclick="@Proceed">Wonderful! Let's log in!</button>
 </Modal>
 @code {
     private string _userName = "";
-    private string password = "";
-    private string repeatPassword = "";
-    private string errorLabel = "";
-    private bool showModal;
+    private string _password = "";
+    private string _repeatPassword = "";
+    private string _errorLabel = "";
+    private bool _showModal;
 
     private async Task CreateAsync()
     {
         if (string.IsNullOrEmpty(_userName))
         {
-            errorLabel = "Username can not be empty!";
+            _errorLabel = "Username can not be empty!";
             return;
         }
-        if (string.IsNullOrEmpty(password))
+        if (string.IsNullOrEmpty(_password))
         {
-            errorLabel = "Password cannot be empty!";
+            _errorLabel = "Password cannot be empty!";
             return;
         }
-        if (string.IsNullOrEmpty(repeatPassword))
+        if (string.IsNullOrEmpty(_repeatPassword))
         {
-            errorLabel= "Repeat Passwprd!";
+            _errorLabel= "Repeat Password!";
             return;
         }
-        if (!password.Equals(repeatPassword))
+        if (!_password.Equals(_repeatPassword))
         {
-            errorLabel = "Repeated password is not the same as password!";
+            _errorLabel = "Repeated password is not the same as password!";
             return;
         }
         try
         {
-            UserCreationDto dto = new(_userName, password);
-            await userService.CreateAsync(dto);
-            showModal = true;
+            UserCreationDto dto = new(_userName, _password);
+            await UserService.CreateAsync(dto);
+            _showModal = true;
 
         }
         catch (Exception e)
         {
             Console.WriteLine(e);
-            errorLabel = $"{e.Message}";
+            _errorLabel = $"{e.Message}";
         }
         
     }
     private void Proceed()
     {
-        showModal = false;
-        navMgr.NavigateTo("/Login");
+        _showModal = false;
+        NavMgr.NavigateTo("/Login");
     }
 }

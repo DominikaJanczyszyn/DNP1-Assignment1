@@ -5,6 +5,6 @@ namespace Application.DAO_Interfaces;
 
 public interface IPostDao
 {
-    Task<Post?> CreateAsync(Post? post);
+    Task<Post?> CreateAsync(Post post);
     Task<IEnumerable<Post?>> GetAsync(SearchPostParametersDto searchParameters);
 }

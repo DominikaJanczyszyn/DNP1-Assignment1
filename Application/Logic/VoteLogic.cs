@@ -46,9 +46,9 @@ public class VoteLogic : IVoteLogic
         IEnumerable<Vote> voteData = await _voteDao.GetAsync(searchVoteParametersDto);
         Vote? existing = voteData.FirstOrDefault(v => (v.Post.Id == dto.PostId && v.Author.Username.Equals(dto.Username)));
         User? user = await _userDao.GetByUsernameAsync(dto.Username);
-        SearchPostParametersDto postParametersDto = new SearchPostParametersDto(dto.PostId, dto.Username, null, null);
+        SearchPostParametersDto postParametersDto = new SearchPostParametersDto(dto.PostId, null, null, null);
         IEnumerable<Post?> postData = await _postDao.GetAsync(postParametersDto);
-        Post post = postData.FirstOrDefault(p => p.Id == dto.PostId);
+        Post post = postData.First(p => p.Id == dto.PostId);
         if (existing == null)
         {
             throw new Exception("Vote not found!");
@@ -58,6 +58,7 @@ public class VoteLogic : IVoteLogic
         if ((dto.IsPositive == true))
         {
             updated = new Vote(user, post, true);
+            Console.WriteLine(updated.Author + " " + updated.Post.Title);
             await _voteDao.UpdateAsync(updated);
         }
         if (dto.IsPositive == false)
@@ -69,9 +70,6 @@ public class VoteLogic : IVoteLogic
         {
             await _voteDao.DeleteAsync(existing.Id);
         }
-        
-        
-        
     }
 
     public Task<IEnumerable<Vote>> GetAsync(SearchVoteParametersDto searchParameters)

@@ -16,7 +16,7 @@ public class UserHttpClient : IUserService
     {
         this._client = client;
     }
-    public async Task<IEnumerable<User>> GetUsers(string? usernameContains = null)
+    public async Task<IEnumerable<User>> GetAsync(string? usernameContains = null)
     {
         string uri = "/Users";
         if (!string.IsNullOrEmpty(usernameContains))

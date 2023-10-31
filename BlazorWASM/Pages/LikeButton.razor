@@ -25,12 +25,12 @@ else
 
 @code {
     [Parameter]
-    public int postId { get; set; }
+    public int PostId { get; set; }
     
     [CascadingParameter]
     public Task<AuthenticationState> AuthState { get; set; } = null!;
-    private string? userName;
-    private bool isLoggedIn;
+    private string _userName;
+    private bool _isLoggedIn;
 
     private Vote Vote;
     private User User;
@@ -42,19 +42,19 @@ else
         {
             AuthenticationState authState = await AuthState;
             ClaimsPrincipal user = authState.User;
-            isLoggedIn = user.Identity != null;
+            _isLoggedIn = user.Identity != null;
 
-            if (!isLoggedIn) return;
-            userName = user.Identity!.Name!;
+            if (!_isLoggedIn) return;
+            _userName = user.Identity!.Name!;
 
-            ICollection<Vote> voteData = await VoteService.GetAsync(postId, userName);
-            Vote = voteData.First(v => (v.Post.Id == postId && v.Author.Username.Equals(userName)));
+            ICollection<Vote> voteData = await VoteService.GetAsync(PostId, _userName);
+            Vote = voteData.First(v => (v.Post.Id == PostId && v.Author.Username.Equals(_userName)));
 
-            IEnumerable<User> userData = await UserService.GetUsers(userName);
-            User = userData.First(u => u.Username.Equals(userName));
+            IEnumerable<User> userData = await UserService.GetAsync(_userName);
+            User = userData.First(u => u.Username.Equals(_userName));
 
-            ICollection<Post?> postData = await PostService.GetAsync(postId, null, null, null);
-            Post = postData.First(p => p.Id == postId);
+            ICollection<Post?> postData = await PostService.GetAsync(PostId, null, null, null);
+            Post = postData.First(p => p.Id == PostId);
         }
         catch (Exception e)
         {
@@ -64,22 +64,21 @@ else
 
 
     }
-  /////zmienic w jedna metode  
     private async void Like()
     {
         if (Vote == null)
         {
-            VoteCreationDto dto = new VoteCreationDto(userName, postId, true);
+            VoteCreationDto dto = new VoteCreationDto(_userName, PostId, true);
             await VoteService.CreateAsync(dto);
         }
         else
         {
             
-            UpdateVoteDto dto = new UpdateVoteDto(userName, postId, true);
+            UpdateVoteDto dto = new UpdateVoteDto(_userName, PostId, true);
             await VoteService.UpdateAsync(dto);
         }
         NavMgr.NavigateTo("/");
-        NavMgr.NavigateTo($"/ViewPost/{postId}");
+        NavMgr.NavigateTo($"/ViewPost/{PostId}");
         
         
     }
@@ -88,7 +87,7 @@ else
     {
         await VoteService.DeleteAsync(Vote.Id);
         NavMgr.NavigateTo("/");
-        NavMgr.NavigateTo($"/ViewPost/{postId}");
+        NavMgr.NavigateTo($"/ViewPost/{PostId}");
       
     }
 

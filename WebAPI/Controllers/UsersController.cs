@@ -10,18 +10,18 @@ using Microsoft.AspNetCore.Mvc;
 [Route("[controller]")]
 public class UsersController : ControllerBase
 {
-    private readonly IUserLogic userLogic;
+    private readonly IUserLogic _userLogic;
 
     public UsersController(IUserLogic userLogic)
     {
-        this.userLogic = userLogic;
+        this._userLogic = userLogic;
     }
     [HttpPost]
     public async Task<ActionResult<User>> CreateAsync(UserCreationDto dto)
     {
         try
         {
-            User user = await userLogic.CreateAsync(dto);
+            User user = await _userLogic.CreateAsync(dto);
             return Created($"/users/{user.Username}", user);
         }
         catch (Exception e)
@@ -36,7 +36,7 @@ public class UsersController : ControllerBase
         try
         {
             SearchUserParametersDto parameters = new(username);
-            IEnumerable<User> users = await userLogic.GetAsync(parameters);
+            IEnumerable<User> users = await _userLogic.GetAsync(parameters);
             return Ok(users);
         }
         catch (Exception e)

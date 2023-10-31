@@ -1,7 +1,7 @@
 ﻿@using HttpClients.ClientInterfaces
 @namespace Login
-@inject NavigationManager navMgr
-@inject IAuthService authService
+@inject NavigationManager NavMgr
+@inject IAuthService AuthService
 
 <AuthorizeView>
     <Authorized>
@@ -16,13 +16,13 @@
 
     private void Login()
     {
-        navMgr.NavigateTo("/Login");
+        NavMgr.NavigateTo("/Login");
     }
 
     private async Task Logout()
     {
-        await authService.LogoutAsync();
-        navMgr.NavigateTo("/");
+        await AuthService.LogoutAsync();
+        NavMgr.NavigateTo("/");
     }
 
 }

@@ -18,19 +18,10 @@
 
     <ItemGroup>
       <Compile Remove="Pages\DisLikeButton.cs" />
-      <Compile Remove="Pages\UIComponents\**" />
+        <Complie Remove="Pages\LikeButton.cs" />
     </ItemGroup>
 
     <ItemGroup>
-      <EmbeddedResource Remove="Pages\UIComponents\**" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Content Remove="Pages\UIComponents\**" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <None Remove="Pages\UIComponents\**" />
       <None Remove="Pages\DisLikeButton.razor.css" />
       <None Remove="Pages\LikeButton.razor.css" />
       <None Remove="Pages\Index.razor.css" />

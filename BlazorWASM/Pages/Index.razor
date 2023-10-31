@@ -33,9 +33,7 @@
         <label style="color: red">@_msg</label>
     }
 @code {
-    private IEnumerable<Post>? _posts;
-    private string _postTitle = "";
-    private string _postBody = "";
+    private ICollection<Post?> _posts;
     private string _msg = "";
 
     protected override async Task OnInitializedAsync()
