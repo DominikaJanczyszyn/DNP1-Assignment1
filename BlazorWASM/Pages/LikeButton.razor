@@ -53,7 +53,7 @@ else
             IEnumerable<User> userData = await UserService.GetAsync(_userName);
             User = userData.First(u => u.Username.Equals(_userName));
 
-            ICollection<Post?> postData = await PostService.GetAsync(PostId, null, null, null);
+            IEnumerable<Post?> postData = await PostService.GetAsync(PostId, null, null, null);
             Post = postData.First(p => p.Id == PostId);
         }
         catch (Exception e)

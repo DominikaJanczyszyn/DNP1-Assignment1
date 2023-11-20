@@ -3,8 +3,8 @@ using Application.DAO_Interfaces;
 using Application.Logic;
 using Application.LogicInterfaces;
 using Assignment1.Auth;
-using FileDataAccess;
-using FileDataAccess.DAOs;
+using EfcDataAccess.DAOs;
+using EfcDataAccess.DbContext;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 
@@ -16,15 +16,16 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddScoped<FileContext>();
-builder.Services.AddScoped<IUserDao, UserFileDao>();
+builder.Services.AddDbContext<PostContext>();
+builder.Services.AddScoped<IUserDao, UserEfcDao>();
 builder.Services.AddScoped<IUserLogic, UserLogic>();
-builder.Services.AddScoped<IPostDao, PostFileDao>();
+builder.Services.AddScoped<IPostDao, PostEfcDao>();
 builder.Services.AddScoped<IPostLogic, PostLogic>();
-builder.Services.AddScoped<ICommentDao, CommentFileDao>();
+builder.Services.AddScoped<ICommentDao, CommentEfcDao>();
 builder.Services.AddScoped<ICommentLogic, CommentLogic>();
-builder.Services.AddScoped<IVoteDao, VoteFileDao>();
+builder.Services.AddScoped<IVoteDao, VoteEfcDao>();
 builder.Services.AddScoped<IVoteLogic, VoteLogic>();
+
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
 {

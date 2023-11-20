@@ -1,7 +1,10 @@
-﻿namespace Assignment1.Models;
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Assignment1.Models;
 
 public class Vote
 {
+    [Key]
     public int Id { get; set; }
     public User Author { get; set; }
     public Post Post { get; set; }
@@ -13,5 +16,6 @@ public class Vote
         Post = post;
         IsPositive = isPositive;
     }
+    private Vote(){}
     
 }

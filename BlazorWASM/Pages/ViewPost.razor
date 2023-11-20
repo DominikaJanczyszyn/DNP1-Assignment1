@@ -84,7 +84,7 @@
         _userName = user.Identity!.Name!;
         try
         {
-            ICollection<Post?> postData = await PostService.GetAsync(Id, null, null, null);
+            IEnumerable<Post?> postData = await PostService.GetAsync(Id, null, null, null);
             _post = postData.FirstOrDefault(p => p.Id == Id);
             _comments = await CommentService.GetAsync(Id, null, null);
 

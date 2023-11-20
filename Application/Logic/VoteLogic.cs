@@ -53,18 +53,22 @@ public class VoteLogic : IVoteLogic
         {
             throw new Exception("Vote not found!");
         }
-
         Vote updated;
         if ((dto.IsPositive == true))
         {
             updated = new Vote(user, post, true);
-            Console.WriteLine(updated.Author + " " + updated.Post.Title);
+            updated.Id = existing.Id;
             await _voteDao.UpdateAsync(updated);
+            // await _voteDao.DeleteAsync(existing.Id);
+            //await _voteDao.CreateAsync(updated);
         }
         if (dto.IsPositive == false)
         {
             updated = new Vote(user,post, false);
+            updated.Id = existing.Id;
             await _voteDao.UpdateAsync(updated);
+            //await _voteDao.DeleteAsync(existing.Id);
+            //await _voteDao.CreateAsync(updated);
         }
         if (dto.IsPositive == null)
         {

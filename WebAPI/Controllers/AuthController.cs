@@ -28,7 +28,7 @@ public class AuthController : ControllerBase
         try
         {
             User? user = await _userLogic.GetByUsernameAsync(userLoginDto.Username);
-            if(user.Password.Equals(userLoginDto.Password))
+            if(user.Password.Equals(userLoginDto.Password) )
             {
                string token = GenerateJwt(user); 
                return Ok(token);
